@@ -22,8 +22,8 @@ var imageCropper = {
     initialY : null,
     xOffset : 0,
     yOffset : 0,
-    dragItem : document.querySelector("#panel"),
-    container : document.querySelector("#container"),
+    dragItem : null,
+    container : null,
 
     /**
      * Initlize canvas and handle button event
@@ -40,6 +40,8 @@ var imageCropper = {
             el[i].style.pointerEvents = 'none';
         }
 
+        this.dragItem = document.getElementById("panel");
+        this.container = document.getElementById("container");
         this.ctx = document.getElementById("panel").getContext("2d");
         this.initCanvas();
 
@@ -102,15 +104,15 @@ var imageCropper = {
             document.getElementById("doneBttn").onclick = tmp.cropImage.bind(tmp);
 
             //remove drag event
-            // var container = document.querySelector("#container");
-            //
-            // container.removeEventListener("touchstart", tmp.dragStart);
-            // container.removeEventListener("touchend", tmp.dragEnd);
-            // container.removeEventListener("touchmove", tmp.drag);
-            //
-            // container.removeEventListener("mousedown", tmp.dragStart);
-            // container.removeEventListener("mouseup", tmp.dragEnd);
-            // container.removeEventListener("mousemove", tmp.drag);
+            var container = document.querySelector("#container");
+
+            container.removeEventListener("touchstart", tmp.dragStart);
+            container.removeEventListener("touchend", tmp.dragEnd);
+            container.removeEventListener("touchmove", tmp.drag);
+
+            container.removeEventListener("mousedown", tmp.dragStart);
+            container.removeEventListener("mouseup", tmp.dragEnd);
+            container.removeEventListener("mousemove", tmp.drag);
         });
 
 
@@ -287,60 +289,60 @@ var imageCropper = {
         tempCtx.canvas.classList.add(className);
     },
 
-    // /**
-    //  * get location of mouse when start draw crop box
-    //  *
-    //  */
-    // dragStart: function(e) {
-    //     if (e.type === "touchstart") {
-    //         this.initialX = e.touches[0].clientX - this.xOffset;
-    //         this.initialY = e.touches[0].clientY - this.yOffset;
-    //     } else {
-    //         this.initialX = e.clientX - this.xOffset;
-    //         this.initialY = e.clientY - this.yOffset;
-    //     }
-    //
-    //     if (e.target === this.dragItem) {
-    //         this.active = true;
-    //     }
-    // },
-    //
-    // /**
-    //  * get location of mouse after draw crop box
-    //  *
-    //  */
-    // dragEnd: function(e) {
-    //     this.initialX = this.currentX;
-    //     this.initialY = this.currentY;
-    //     this.active = false;
-    // },
-    //
-    // /**
-    //  * get location when mouse moving and set transform for dragItem
-    //  *
-    //  */
-    // drag: function(e) {
-    //     if (this.active) {
-    //
-    //         e.preventDefault();
-    //
-    //         if (e.type === "touchmove") {
-    //             this.currentX = e.touches[0].clientX - this.initialX;
-    //             this.currentY = e.touches[0].clientY - this.initialY;
-    //         } else {
-    //             this.currentX = e.clientX - this.initialX;
-    //             this.currentY = e.clientY - this.initialY;
-    //         }
-    //
-    //         this.xOffset = this.currentX;
-    //         this.yOffset = this.currentY;
-    //         this.setTranslate(this.currentX, this.currentY, this.dragItem);
-    //     }
-    // },
-    //
-    // setTranslate: function(xPos, yPos, el) {
-    //     el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
-    // },
+    /**
+     * get location of mouse when start draw crop box
+     *
+     */
+    dragStart: function(e) {
+        if (e.type === "touchstart") {
+            this.initialX = e.touches[0].clientX - this.xOffset;
+            this.initialY = e.touches[0].clientY - this.yOffset;
+        } else {
+            this.initialX = e.clientX - this.xOffset;
+            this.initialY = e.clientY - this.yOffset;
+        }
+
+        if (e.target === this.dragItem) {
+            this.active = true;
+        }
+    },
+
+    /**
+     * get location of mouse after draw crop box
+     *
+     */
+    dragEnd: function(e) {
+        this.initialX = this.currentX;
+        this.initialY = this.currentY;
+        this.active = false;
+    },
+
+    /**
+     * get location when mouse moving and set transform for dragItem
+     *
+     */
+    drag: function(e) {
+        if (this.active) {
+
+            e.preventDefault();
+
+            if (e.type === "touchmove") {
+                this.currentX = e.touches[0].clientX - this.initialX;
+                this.currentY = e.touches[0].clientY - this.initialY;
+            } else {
+                this.currentX = e.clientX - this.initialX;
+                this.currentY = e.clientY - this.initialY;
+            }
+
+            this.xOffset = this.currentX;
+            this.yOffset = this.currentY;
+            this.setTranslate(this.currentX, this.currentY, this.dragItem);
+        }
+    },
+
+    setTranslate: function(xPos, yPos, el) {
+        el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+    },
 
     /**
      * Initlize mousedown and mouseup event
