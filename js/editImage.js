@@ -1,5 +1,5 @@
 
-var imageCropper = {
+var photoEditor = {
     element: '<div class="main"><div class="table img-edit" ><div class="tableCell box" id="container"><canvas id="panel"></canvas><label id="uploadImg" class="label" style="text-align: center"><p style="color:white; font-size: 36px;">Click to upload image</p><input type="file" class="sr-only" id="input" name="image" accept="image/*"></label></div></div><div class="table"><div class="toolbar" id="anh"><div class="toolbar_button" id="dragBttn" name="Drag"><span class="fa fa-arrows tooltip"></span><span class="tooltiptext">Drag</span></div><div class="toolbar_button" id="resizeBttn" name="Resize"><span class="fa fa-expand tooltip"></span><span class="tooltiptext">Resize</span></div><div class="sizearea" id="widthInput" style="display: none;"><span>Width</span><input type="text" id="widthValue" style="width: 30px"></div><div class="sizearea" id="heightInput" style="display: none;"><span>Height</span><input type="text" id="heightValue" style="width: 30px"></div><div class="toolbar_button" id="cropBttn" name="Crop"><span class="fa fa-crop tooltip"></span><span class="tooltiptext">Crop</span></div><div class="toolbar_button" id="zoominBttn" name="ZoomIn"><span class="fa fa-search-minus tooltip"></span><span class="tooltiptext">ZoomIn</span></div><div class="toolbar_button" id="zoomoutBttn" name="Zoomout"><span class="fa fa-search-plus tooltip"></span><span class="tooltiptext">Zommout</span></div><div class="toolbar_button" id="orientateBttn" name="Zoomout"><span class="fa fa-refresh tooltip"></span><span class="tooltiptext">Orientation</span></div><div class="toolbar_button" id="rotateLeft" style="display: none" name="Rotate Counterclockwise"><span class="fa fa-rotate-left tooltip"></span><span class="tooltiptext">Rotate Counterclockwise</span></div><div class="toolbar_button" id="rotateRight" style="display: none" name="Rotate Clockwise"><span class="fa fa-rotate-right tooltip"></span><span class="tooltiptext">Rotate Clockwise</span></div><div class="toolbar_button" id="vertical" style="display: none"><span class="fa fa-arrows-h tooltip"></span><span class="tooltiptext">Vertical</span></div><div class="toolbar_button" id="horizontal" style="display: none"><span class="fa fa-arrows-v tooltip"></span><span class="tooltiptext">Horizontal</span></div><div class="toolbar_button" id="contrast" name="Contrast"><span class="fa fa-adjust tooltip"></span><span class="tooltiptext">Contrast</span></div><div class="toolbar_button" id="brightness" name="Brightness"><span class="fa fa-sun-o tooltip"></span><span class="tooltiptext">Brighness</span></div><div class="toolbar_button" id="blur" name="Blur"><span class="fa fa-filter tooltip"></span><span class="tooltiptext">Blur</span></div><div class="toolbar_button" id="gray" name="Gray"><span class="fa fa-snowflake-o tooltip"></span><span class="tooltiptext">Gray</span></div><div class="toolbar_button" id="saturate" name="Saturate"><span class="fa fa-diamond tooltip"></span><span class="tooltiptext">Saturate</span></div><div class="toolbar_button" id="filter" name="Saturate"><span class="fa fa-cogs tooltip"><span class="tooltiptext">Filter</span></span></div><div class="toolbar_button" id="undoBttn" name="Undo"><span class="fa fa-mail-reply tooltip"></span><span class="tooltiptext">Undo</span></div><div class="toolbar_button " id="redoBttn" name="Redo"><span class="fa fa-mail-forward tooltip"></span><span class="tooltiptext">Redo</span></div><div class="slidecontainer sizearea" style="display: none" id="slideBar"><input type="range" min="0" max="200" value="100" class="slider" id="rangeBar"><span id="filterValue">Value: </span></div><div id="filterArea" style="display: none"><figure class="year tooltip" id="style1"><img id="year" class="img"><span class="tooltiptext"> 1977</span></figure><figure class="amaro tooltip"><img id="amaro" class="img"><span class="tooltiptext">Amaro</span></figure><figure class="brooklyn tooltip"><img id="brooklyn" class="img"><span class="tooltiptext">Brooklyn</span></figure><figure class="clarendon tooltip"><img id="clarendon" class="img"><span class="tooltiptext">Clarendon</span></figure><figure class="inkwell tooltip"><img id="inkwell" class="img"><span class="tooltiptext">Inkwell</span></figure><figure class="reyes tooltip"><img id="reyes" class="img"><span class="tooltiptext">Reyes</span></figure><figure class="stinson tooltip"><img id="stinson" class="img"><span class="tooltiptext">Stinson</span></figure><figure class="walden tooltip"><img id="walden" class="img"><span class="tooltiptext">Walden</span></figure><figure class="xpro2 tooltip"><img id="xpro2" class="img"><span class="tooltiptext">Xpro2</span></figure><figure class="brannan tooltip"><img id="brannan" class="img"><span class="tooltiptext">Brannan</span></figure><figure class="earlybird tooltip"><img id="earlybird" class="img"><span class="tooltiptext">Earlybird</span></figure><figure class="maven tooltip"><img id="maven" class="img"><span class="tooltiptext">Maven</span></figure></div><button class="toolbar_button" id="doneBttn" name="Apply" style="display:none;"><span class="fa fa-check"></span></button><button class="toolbar_button" id="cancelBttn" name="Cancel" style="display: none;"><span class="fa fa-close"></span></button></div></div></div>',
     ctx: null,
     image: null,
@@ -22,8 +22,8 @@ var imageCropper = {
     initialY : null,
     xOffset : 0,
     yOffset : 0,
-    dragItem : document.querySelector("#panel"),
-    container : document.querySelector("#container"),
+    dragItem : null,
+    container : null,
 
     /**
      * Initlize canvas and handle button event
@@ -40,6 +40,8 @@ var imageCropper = {
             el[i].style.pointerEvents = 'none';
         }
 
+        this.dragItem = document.getElementById("panel");
+        this.container = document.getElementById("container");
         this.ctx = document.getElementById("panel").getContext("2d");
         this.initCanvas();
 
@@ -102,15 +104,15 @@ var imageCropper = {
             document.getElementById("doneBttn").onclick = tmp.cropImage.bind(tmp);
 
             //remove drag event
-            // var container = document.querySelector("#container");
-            //
-            // container.removeEventListener("touchstart", tmp.dragStart);
-            // container.removeEventListener("touchend", tmp.dragEnd);
-            // container.removeEventListener("touchmove", tmp.drag);
-            //
-            // container.removeEventListener("mousedown", tmp.dragStart);
-            // container.removeEventListener("mouseup", tmp.dragEnd);
-            // container.removeEventListener("mousemove", tmp.drag);
+            var container = document.querySelector("#container");
+
+            container.removeEventListener("touchstart", tmp.dragStart);
+            container.removeEventListener("touchend", tmp.dragEnd);
+            container.removeEventListener("touchmove", tmp.drag);
+
+            container.removeEventListener("mousedown", tmp.dragStart);
+            container.removeEventListener("mouseup", tmp.dragEnd);
+            container.removeEventListener("mousemove", tmp.drag);
         });
 
 
@@ -287,60 +289,60 @@ var imageCropper = {
         tempCtx.canvas.classList.add(className);
     },
 
-    // /**
-    //  * get location of mouse when start draw crop box
-    //  *
-    //  */
-    // dragStart: function(e) {
-    //     if (e.type === "touchstart") {
-    //         this.initialX = e.touches[0].clientX - this.xOffset;
-    //         this.initialY = e.touches[0].clientY - this.yOffset;
-    //     } else {
-    //         this.initialX = e.clientX - this.xOffset;
-    //         this.initialY = e.clientY - this.yOffset;
-    //     }
-    //
-    //     if (e.target === this.dragItem) {
-    //         this.active = true;
-    //     }
-    // },
-    //
-    // /**
-    //  * get location of mouse after draw crop box
-    //  *
-    //  */
-    // dragEnd: function(e) {
-    //     this.initialX = this.currentX;
-    //     this.initialY = this.currentY;
-    //     this.active = false;
-    // },
-    //
-    // /**
-    //  * get location when mouse moving and set transform for dragItem
-    //  *
-    //  */
-    // drag: function(e) {
-    //     if (this.active) {
-    //
-    //         e.preventDefault();
-    //
-    //         if (e.type === "touchmove") {
-    //             this.currentX = e.touches[0].clientX - this.initialX;
-    //             this.currentY = e.touches[0].clientY - this.initialY;
-    //         } else {
-    //             this.currentX = e.clientX - this.initialX;
-    //             this.currentY = e.clientY - this.initialY;
-    //         }
-    //
-    //         this.xOffset = this.currentX;
-    //         this.yOffset = this.currentY;
-    //         this.setTranslate(this.currentX, this.currentY, this.dragItem);
-    //     }
-    // },
-    //
-    // setTranslate: function(xPos, yPos, el) {
-    //     el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
-    // },
+    /**
+     * get location of mouse when start draw crop box
+     *
+     */
+    dragStart: function(e) {
+        if (e.type === "touchstart") {
+            this.initialX = e.touches[0].clientX - this.xOffset;
+            this.initialY = e.touches[0].clientY - this.yOffset;
+        } else {
+            this.initialX = e.clientX - this.xOffset;
+            this.initialY = e.clientY - this.yOffset;
+        }
+
+        if (e.target === this.dragItem) {
+            this.active = true;
+        }
+    },
+
+    /**
+     * get location of mouse after draw crop box
+     *
+     */
+    dragEnd: function(e) {
+        this.initialX = this.currentX;
+        this.initialY = this.currentY;
+        this.active = false;
+    },
+
+    /**
+     * get location when mouse moving and set transform for dragItem
+     *
+     */
+    drag: function(e) {
+        if (this.active) {
+
+            e.preventDefault();
+
+            if (e.type === "touchmove") {
+                this.currentX = e.touches[0].clientX - this.initialX;
+                this.currentY = e.touches[0].clientY - this.initialY;
+            } else {
+                this.currentX = e.clientX - this.initialX;
+                this.currentY = e.clientY - this.initialY;
+            }
+
+            this.xOffset = this.currentX;
+            this.yOffset = this.currentY;
+            this.setTranslate(this.currentX, this.currentY, this.dragItem);
+        }
+    },
+
+    setTranslate: function(xPos, yPos, el) {
+        el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+    },
 
     /**
      * Initlize mousedown and mouseup event
