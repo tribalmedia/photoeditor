@@ -2,7 +2,7 @@
 
 A simple and easy-to-use library which provides the completion of the most basic editing functions.
 
-##Features
+## Features
 * Support both PC and mobile devices
 * Upload Image
 * Apply Filter Effect on image such as brightness, contrast, blur, gray, staturate 
@@ -29,7 +29,7 @@ Simply apply Photoeditor with a reference to the element:
 <div id="test"></div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        imageCropper.init('test');
+        photoEditor.init('test');
     }, false);
 </script>
 
