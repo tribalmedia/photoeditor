@@ -1,0 +1,25 @@
+{
+  "name": "photoeditor",
+  "version": "1.0.0",
+  "description": "A simple and easy-to-use library which provides the completion of the most basic editing functions.",
+  "main": "index.js",
+  "dependencies": {
+    "font-awesome": "^4.7.0"
+  },
+  "devDependencies": {
+    "font-awesome": "^4.7.0"
+  },
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tribalmedia/photoeditor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tribalmedia/photoeditor/issues"
+  },
+  "homepage": "https://github.com/tribalmedia/photoeditor#readme"
+}
