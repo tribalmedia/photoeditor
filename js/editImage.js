@@ -1,5 +1,5 @@
 var photoEditor = {
-    element: '<div class="main"><div class="table img-edit" ><div class="tableCell box" id="container"><canvas id="panel"></canvas><label id="uploadImg" class="label" style="text-align: center"><p style="color:white; font-size: 36px;">Click to upload image</p><input type="file" class="sr-only" id="input" name="image" accept="image/*"></label></div></div><div class="table"><div class="toolbar" id="anh"><div class="toolbar_button" id="dragBttn" name="Drag"><span class="fa fa-arrows tooltip"></span><span class="tooltiptext">Drag</span></div><div class="toolbar_button" id="resizeBttn" name="Resize"><span class="fa fa-expand tooltip"></span><span class="tooltiptext">Resize</span></div><div class="sizearea" id="widthInput" style="display: none;"><span>Width</span><input type="text" id="widthValue" style="width: 30px"></div><div class="sizearea" id="heightInput" style="display: none;"><span>Height</span><input type="text" id="heightValue" style="width: 30px"></div><div class="toolbar_button" id="cropBttn" name="Crop"><span class="fa fa-crop tooltip"></span><span class="tooltiptext">Crop</span></div><div class="toolbar_button" id="zoominBttn" name="ZoomIn"><span class="fa fa-search-minus tooltip"></span><span class="tooltiptext">ZoomIn</span></div><div class="toolbar_button" id="zoomoutBttn" name="Zoomout"><span class="fa fa-search-plus tooltip"></span><span class="tooltiptext">ZoomOut</span></div><div class="toolbar_button" id="orientateBttn" name="Zoomout"><span class="fa fa-refresh tooltip"></span><span class="tooltiptext">Orientation</span></div><div class="toolbar_button" id="rotateLeft" style="display: none" name="Rotate Counterclockwise"><span class="fa fa-rotate-left tooltip"></span><span class="tooltiptext" style="width:200px;">Rotate Counterclockwise</span></div><div class="toolbar_button" id="rotateRight" style="display: none" name="Rotate Clockwise"><span class="fa fa-rotate-right tooltip"></span><span class="tooltiptext">Rotate Clockwise</span></div><div class="toolbar_button" id="vertical" style="display: none"><span class="fa fa-arrows-h tooltip"></span><span class="tooltiptext">Vertical</span></div><div class="toolbar_button" id="horizontal" style="display: none"><span class="fa fa-arrows-v tooltip"></span><span class="tooltiptext">Horizontal</span></div><div class="toolbar_button" id="contrast" name="Contrast"><span class="fa fa-adjust tooltip"></span><span class="tooltiptext">Contrast</span></div><div class="toolbar_button" id="brightness" name="Brightness"><span class="fa fa-sun-o tooltip"></span><span class="tooltiptext">Brighness</span></div><div class="toolbar_button" id="blur" name="Blur"><span class="fa fa-filter tooltip"></span><span class="tooltiptext">Blur</span></div><div class="toolbar_button" id="grayscale" name="Grayscale"><span class="fa fa-snowflake-o tooltip"></span><span class="tooltiptext">Grayscale</span></div><div class="toolbar_button" id="saturate" name="Saturate"><span class="fa fa-diamond tooltip"></span><span class="tooltiptext">Saturate</span></div><div class="toolbar_button" id="filter" name="Saturate"><span class="fa fa-cogs tooltip"><span class="tooltiptext">Filter</span></span></div><div class="toolbar_button" id="undoBttn" name="Undo"><span class="fa fa-mail-reply tooltip"></span><span class="tooltiptext">Undo</span></div><div class="toolbar_button " id="redoBttn" name="Redo"><span class="fa fa-mail-forward tooltip"></span><span class="tooltiptext">Redo</span></div><div class="slidecontainer sizearea" style="display: none" id="slideBar"><input type="range" min="0" max="200" value="100" class="slider" id="rangeBar"><span id="filterValue">Value: </span></div><div id="filterArea" style="display: none"><figure class="brannan tooltip"><img id="brannan" class="img"><span class="tooltiptext">brannan</span></figure><figure class="aden tooltip"><img id="aden" class="img"><span class="tooltiptext">Aden</span></figure><figure class="clarendon tooltip"><img id="clarendon" class="img"><span class="tooltiptext">Clarendon</span></figure><figure class="lofi tooltip" id="style1"><img id="lofi" class="img"><span class="tooltiptext"> Lofi</span></figure><figure class="amaro tooltip"><img id="amaro" class="img"><span class="tooltiptext">Amaro</span></figure><figure class="walden tooltip"><img id="walden" class="img"><span class="tooltiptext">Walden</span></figure><figure class="maven tooltip"><img id="maven" class="img"><span class="tooltiptext">Maven</span></figure><figure class="brooklyn tooltip"><img id="brooklyn" class="img"><span class="tooltiptext">Brooklyn</span></figure><figure class="xpro2 tooltip"><img id="xpro2" class="img"><span class="tooltiptext">Xpro2</span></figure><figure class="toaster tooltip"><img id="toaster" class="img"><span class="tooltiptext">Toaster</span></figure><figure class="stinson tooltip"><img id="stinson" class="img"><span class="tooltiptext">Stinson</span></figure><figure class="inkwell tooltip"><img id="inkwell" class="img"><span class="tooltiptext">Inkwell</span></figure></div><button class="toolbar_button" id="doneBttn" name="Apply" style="display:none;"><span class="fa fa-check"></span></button><button class="toolbar_button" id="cancelBttn" name="Cancel" style="display: none;"><span class="fa fa-close"></span></button></div></div></div>',
+    element: '<div class="main"><div class="table img-edit" ><div class="tableCell box" id="container"><canvas id="panel"></canvas><label id="uploadImg" class="label" style="text-align: center"><p style="color:white; font-size: 36px;">Click to upload image</p><input type="file" class="sr-only" id="input" name="image" accept="image/*"></label></div></div><div class="table"><div class="toolbar" id="anh"><div class="toolbar_button" id="dragBttn" name="Drag"><span class="fa fa-arrows tooltip"></span><span class="tooltiptext">Drag</span></div><div class="toolbar_button" id="resizeBttn" name="Resize"><span class="fa fa-expand tooltip"></span><span class="tooltiptext">Resize</span></div><div class="toolbar_button" id="imgBttn" name="addImage"><label style="cursor: pointer"><input type="file" class="sr-only" id="addImg" name="image" accept="image/*"><span class="fa fa-image tooltip"></span><span class="tooltiptext">Add Image</span></label></div><div class="toolbar_button" id="textBttn" name="addText"><span class="fa fa-text-width tooltip"></span><span class="tooltiptext">Add Text</span></div><div class="sizearea" id="widthInput" style="display: none;"><span>Width</span><input type="text" id="widthValue" style="width: 30px"></div><div class="sizearea" id="heightInput" style="display: none;"><span>Height</span><input type="text" id="heightValue" style="width: 30px"></div><div class="toolbar_button" id="cropBttn" name="Crop"><span class="fa fa-crop tooltip"></span><span class="tooltiptext">Crop</span></div><div class="toolbar_button" id="zoominBttn" name="ZoomIn"><span class="fa fa-search-minus tooltip"></span><span class="tooltiptext">ZoomIn</span></div><div class="toolbar_button" id="zoomoutBttn" name="Zoomout"><span class="fa fa-search-plus tooltip"></span><span class="tooltiptext">ZoomOut</span></div><div class="toolbar_button" id="orientateBttn" name="Zoomout"><span class="fa fa-refresh tooltip"></span><span class="tooltiptext">Orientation</span></div><div class="toolbar_button" id="rotateLeft" style="display: none" name="Rotate Counterclockwise"><span class="fa fa-rotate-left tooltip"></span><span class="tooltiptext" style="width:200px;">Rotate Counterclockwise</span></div><div class="toolbar_button" id="rotateRight" style="display: none" name="Rotate Clockwise"><span class="fa fa-rotate-right tooltip"></span><span class="tooltiptext">Rotate Clockwise</span></div><div class="toolbar_button" id="vertical" style="display: none"><span class="fa fa-arrows-h tooltip"></span><span class="tooltiptext">Vertical</span></div><div class="toolbar_button" id="horizontal" style="display: none"><span class="fa fa-arrows-v tooltip"></span><span class="tooltiptext">Horizontal</span></div><div class="toolbar_button" id="contrast" name="Contrast"><span class="fa fa-adjust tooltip"></span><span class="tooltiptext">Contrast</span></div><div class="toolbar_button" id="brightness" name="Brightness"><span class="fa fa-sun-o tooltip"></span><span class="tooltiptext">Brighness</span></div><div class="toolbar_button" id="blur" name="Blur"><span class="fa fa-filter tooltip"></span><span class="tooltiptext">Blur</span></div><div class="toolbar_button" id="grayscale" name="Grayscale"><span class="fa fa-snowflake-o tooltip"></span><span class="tooltiptext">Grayscale</span></div><div class="toolbar_button" id="saturate" name="Saturate"><span class="fa fa-diamond tooltip"></span><span class="tooltiptext">Saturate</span></div><div class="toolbar_button" id="filter" name="Saturate"><span class="fa fa-cogs tooltip"><span class="tooltiptext">Filter</span></span></div><div class="toolbar_button" id="undoBttn" name="Undo"><span class="fa fa-mail-reply tooltip"></span><span class="tooltiptext">Undo</span></div><div class="toolbar_button " id="redoBttn" name="Redo"><span class="fa fa-mail-forward tooltip"></span><span class="tooltiptext">Redo</span></div><div class="slidecontainer sizearea" style="display: none" id="slideBar"><input type="range" min="0" max="200" value="100" class="slider" id="rangeBar"><span id="filterValue">Value: </span></div><div id="filterArea" style="display: none"><figure class="brannan tooltip"><img id="brannan" class="img"><span class="tooltiptext">brannan</span></figure><figure class="aden tooltip"><img id="aden" class="img"><span class="tooltiptext">Aden</span></figure><figure class="clarendon tooltip"><img id="clarendon" class="img"><span class="tooltiptext">Clarendon</span></figure><figure class="lofi tooltip" id="style1"><img id="lofi" class="img"><span class="tooltiptext"> Lofi</span></figure><figure class="amaro tooltip"><img id="amaro" class="img"><span class="tooltiptext">Amaro</span></figure><figure class="walden tooltip"><img id="walden" class="img"><span class="tooltiptext">Walden</span></figure><figure class="maven tooltip"><img id="maven" class="img"><span class="tooltiptext">Maven</span></figure><figure class="brooklyn tooltip"><img id="brooklyn" class="img"><span class="tooltiptext">Brooklyn</span></figure><figure class="xpro2 tooltip"><img id="xpro2" class="img"><span class="tooltiptext">Xpro2</span></figure><figure class="toaster tooltip"><img id="toaster" class="img"><span class="tooltiptext">Toaster</span></figure><figure class="stinson tooltip"><img id="stinson" class="img"><span class="tooltiptext">Stinson</span></figure><figure class="inkwell tooltip"><img id="inkwell" class="img"><span class="tooltiptext">Inkwell</span></figure></div><button class="toolbar_button" id="doneBttn" name="Apply" style="display:none;"><span class="fa fa-check"></span></button><button class="toolbar_button" id="cancelBttn" name="Cancel" style="display: none;"><span class="fa fa-close"></span></button></div></div></div>',
     ctx: null,
     image: null,
     click: false,
@@ -32,11 +32,12 @@ var photoEditor = {
         document.getElementById(param).insertAdjacentHTML("afterend", this.element);
         document.getElementById(param).remove();
 
-        var tmp = this;
+
         var el = document.getElementsByClassName('toolbar_button');
         this.img_arr = [];
         this.stack_position = 0;
         this.zoomValue = 0;
+        this.states = [];
 
         for (var i = 0; i < el.length; i++) {
             el[i].style.pointerEvents = 'none';
@@ -62,6 +63,7 @@ var photoEditor = {
             'brannan' : 'contrast(140%) sepia(50%)',
             'lofi' : 'contrast(150%) saturate(110%)'
         };
+        var tmp = this;
 
         //buttons event
         document.getElementById("resizeBttn").onclick = this.changeImageSize.bind(this);
@@ -77,6 +79,8 @@ var photoEditor = {
         document.getElementById('undoBttn').onclick = this.undo.bind(this);
         document.getElementById('redoBttn').onclick = this.redo.bind(this);
 
+
+
         document.getElementById('dragBttn').onclick = function(e) {
             tmp.ctx = document.getElementById("panel").getContext("2d");
             tmp.image.src = tmp.ctx.canvas.toDataURL();
@@ -91,6 +95,90 @@ var photoEditor = {
             container.addEventListener("mouseup", tmp.dragEnd.bind(tmp), false);
             container.addEventListener("mousemove", tmp.drag.bind(tmp), false);
         };
+
+        document.getElementById('addImg').addEventListener('change', function (e) {
+            tmp.openEditToolBar();
+
+            document.getElementById('imgBttn').style.display = 'inline-block';
+            document.getElementById('widthInput').style.display = 'inline-block';
+            document.getElementById('heightInput').style.display = 'inline-block';
+
+            var img = new Image();
+            img.setAttribute('crossOrigin', 'anonymous');
+            console.log('aaa111');
+            var el = document.getElementsByClassName('toolbar_button');
+            for (var i = 0; i < el.length; i++) {
+                el[i].style.pointerEvents = '';
+            }
+
+            var files = e.target.files;
+
+            if (files && files.length > 0) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    img.src = reader.result;
+                };
+                reader.readAsDataURL(files[0]);
+            }
+
+            img.onload = function () {
+                tmp.states.push(tmp.addState(tmp.states.length * 100, 0, img));
+                document.getElementById('widthValue').value = img.width;
+                document.getElementById('heightValue').value = img.height;
+            }
+
+
+
+            document.getElementById('widthValue').addEventListener('keyup', function () {
+                var ratio = this.value/img.width;
+                document.getElementById('heightValue').value = Math.round(img.height * ratio);
+
+
+
+                var newImg = new Image();
+                newImg.setAttribute('crossOrigin', 'anonymous');
+
+                newImg.width = this.value;
+                newImg.height = Math.round(img.height * ratio);
+                newImg.src = img.src;
+
+                console.log('44444');
+
+                tmp.clearAll(tmp);
+
+
+                newImg.onload = function () {
+                    console.log('load data');
+                    tmp.states.push(tmp.addState(tmp.states.length * 100, 0, newImg));
+                }
+            });
+
+            document.getElementById('heightValue').addEventListener('keyup', function () {
+                var ratio = this.value/img.height;
+                document.getElementById('widthValue').value = Math.round(img.width * ratio);
+
+                tmp.clearAll(tmp);
+
+                var newImg = new Image();
+                newImg.setAttribute('crossOrigin', 'anonymous');
+
+                newImg.height = this.value;
+                newImg.width = Math.round(img.width * ratio);
+
+                newImg.onload = function () {
+                    tmp.states.push(tmp.addState(tmp.states.length * 100, 0, newImg));
+                }
+            });
+
+            tmp.ctx.canvas.onclick = function (e) {
+                tmp.handleClick(e, 1, tmp);
+            };
+
+            tmp.ctx.canvas.onmousemove = function (e) {
+                tmp.handleMousemove(e, 1, tmp);
+            }
+        });
 
         document.getElementById("filter").onclick = this.chooseFilter.bind(this);
 
@@ -119,7 +207,93 @@ var photoEditor = {
 
 
     },
-    /**
+    addState: function (x, y, image) {
+        var state = {};
+        state.dragging = false;
+        state.contextIndex = 1;
+        state.image = image;
+        state.x = x;
+        state.y = y;
+        state.width = image.width;
+        console.log(image.width);
+        state.height = image.height;
+        state.offsetX = 0;
+        state.offsetY = 0;
+        state.draw = function () {
+            var context = document.getElementById('panel').getContext('2d');
+            if (this.dragging) {
+                context.strokeStyle = 'red';
+                context.strokeRect(this.x, this.y, this.width + 5, this.height + 5)
+
+            }
+
+            context.drawImage(this.image, this.x, this.y, this.image.width, this.image.height);
+        }
+        state.draw();
+        return (state);
+    },
+    clearAll: function (tmp) {
+        var pos = tmp.stack_position;
+        //Clear both canvas first
+        var image = tmp.img_arr[pos];
+        // document.getElementById("panel").remove();
+        // var data = "<canvas id='panel'></canvas>";
+        // document.getElementById('container').innerHTML += data;
+        var tempCtx = document.getElementById('panel').getContext('2d');
+        tempCtx.clearRect(0, 0, tempCtx.width, tempCtx.height);
+
+        tempCtx.canvas.width = image.width;
+        tempCtx.canvas.height = image.height;
+
+        tempCtx.drawImage(image.img, 0, 0, image.width, image.height);
+    },
+    handleClick: function (e, contextIndex, tmp) {
+        e.stopPropagation();
+
+        var mouseX = Math.abs(parseInt(e.target.offsetLeft - e.clientX));
+        var mouseY = Math.abs(parseInt(e.target.offsetTop - e.clientY));
+
+        tmp.clearAll(tmp);
+
+        for (var i = 0; i < tmp.states.length; i++) {
+            var state = tmp.states[i];
+            if (state.dragging) {
+                state.dragging = false;
+                state.draw();
+                continue;
+            }
+            if (state.contextIndex == contextIndex && mouseX < state.x + state.width && mouseY < state.y + state.height) {
+                state.dragging = true;
+                state.offsetX = mouseX - state.x;
+                state.offsetY = mouseY - state.y;
+                state.contextIndex = contextIndex;
+            }
+
+            state.draw();
+        }
+    },
+    handleMousemove: function (e, contextIndex, tmp) {
+        e.stopPropagation();
+
+        var mouseX = parseInt(e.clientX - e.target.offsetLeft);
+        var mouseY = parseInt(e.clientY - e.target.offsetTop);
+
+        tmp.clearAll(tmp);
+
+        for (var i = 0; i < tmp.states.length; i++) {
+
+            var state = tmp.states[i];
+
+            if (state.dragging) {
+                state.x = mouseX - state.offsetX;
+                state.y = mouseY - state.offsetY;
+                state.contextIndex = contextIndex;
+            }
+            state.draw();
+        }
+    },
+
+/**
      * get uploaded image and draw canvas
      *
      */
@@ -152,6 +326,8 @@ var photoEditor = {
             this.ctx.canvas.width = this.image.width;
             this.ctx.canvas.height = this.image.height;
             this.ctx.drawImage(this.image, 0, 0);
+            // states.push(addState(states.length * 100, 0, img));
+
 
             document.getElementById('uploadImg').style.display = 'none';
 
@@ -167,6 +343,8 @@ var photoEditor = {
             }
 
             this.img_arr.push(imgValue);
+            this.ctx.fillStyle = "red";
+            this.ctx.fillText('lan anh',40,80);
 
         }.bind(this);
     },
