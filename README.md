@@ -52,6 +52,6 @@ Simply apply Photoeditor with a reference to the element:
 
 ## License
 
-Photoeditor is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+Photoeditor is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 
