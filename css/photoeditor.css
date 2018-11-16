@@ -260,11 +260,11 @@ html, body{
         font-size: 1.5rem;
     }
 
-    #widthInput, #heightInput {
+    #widthInput, #heightInput, #widthImgInput, #heightImgInput {
         width: 35%;
     }
 
-    #widthValue, #heightValue {
+    #widthValue, #heightValue, #widthImgValue, #heightImgValue {
         width: 50px;
         margin-left: 15px;
         font-size: 20px;
@@ -295,7 +295,7 @@ html, body{
     height: 70px
 }
 
-#widthValue, #heightValue {
+#widthValue, #heightValue, #textValue, #widthImgValue, #heightImgValue {
     width: 30px;
     margin: 0 7px 0 3px;
 }

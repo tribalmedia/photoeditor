@@ -1,5 +1,5 @@
 var photoEditor = {
-    element: '<div class="main"><div class="table img-edit" ><div class="tableCell box" id="container"><canvas id="panel"></canvas><label id="uploadImg" class="label" style="text-align: center"><p style="color:white; font-size: 36px;">Click to upload image</p><input type="file" class="sr-only" id="input" name="image" accept="image/*"></label></div></div><div class="table"><div class="toolbar" id="anh"><div class="toolbar_button" id="dragBttn" name="Drag"><span class="fa fa-arrows tooltip"></span><span class="tooltiptext">Drag</span></div><div class="toolbar_button" id="resizeBttn" name="Resize"><span class="fa fa-expand tooltip"></span><span class="tooltiptext">Resize</span></div><div class="toolbar_button" id="imgBttn" name="addImage"><label style="cursor: pointer"><input type="file" class="sr-only" id="addImg" name="image" accept="image/*"><span class="fa fa-image tooltip"></span><span class="tooltiptext">Add Image</span></label></div><div class="toolbar_button" id="textBttn" name="addText"><span class="fa fa-text-width tooltip"></span><span class="tooltiptext">Add Text</span></div><div class="sizearea" id="widthInput" style="display: none;"><span>Width</span><input type="text" id="widthValue" style="width: 30px"></div><div class="sizearea" id="heightInput" style="display: none;"><span>Height</span><input type="text" id="heightValue" style="width: 30px"></div><div class="toolbar_button" id="cropBttn" name="Crop"><span class="fa fa-crop tooltip"></span><span class="tooltiptext">Crop</span></div><div class="toolbar_button" id="zoominBttn" name="ZoomIn"><span class="fa fa-search-minus tooltip"></span><span class="tooltiptext">ZoomIn</span></div><div class="toolbar_button" id="zoomoutBttn" name="Zoomout"><span class="fa fa-search-plus tooltip"></span><span class="tooltiptext">ZoomOut</span></div><div class="toolbar_button" id="orientateBttn" name="Zoomout"><span class="fa fa-refresh tooltip"></span><span class="tooltiptext">Orientation</span></div><div class="toolbar_button" id="rotateLeft" style="display: none" name="Rotate Counterclockwise"><span class="fa fa-rotate-left tooltip"></span><span class="tooltiptext" style="width:200px;">Rotate Counterclockwise</span></div><div class="toolbar_button" id="rotateRight" style="display: none" name="Rotate Clockwise"><span class="fa fa-rotate-right tooltip"></span><span class="tooltiptext">Rotate Clockwise</span></div><div class="toolbar_button" id="vertical" style="display: none"><span class="fa fa-arrows-h tooltip"></span><span class="tooltiptext">Vertical</span></div><div class="toolbar_button" id="horizontal" style="display: none"><span class="fa fa-arrows-v tooltip"></span><span class="tooltiptext">Horizontal</span></div><div class="toolbar_button" id="contrast" name="Contrast"><span class="fa fa-adjust tooltip"></span><span class="tooltiptext">Contrast</span></div><div class="toolbar_button" id="brightness" name="Brightness"><span class="fa fa-sun-o tooltip"></span><span class="tooltiptext">Brighness</span></div><div class="toolbar_button" id="blur" name="Blur"><span class="fa fa-filter tooltip"></span><span class="tooltiptext">Blur</span></div><div class="toolbar_button" id="grayscale" name="Grayscale"><span class="fa fa-snowflake-o tooltip"></span><span class="tooltiptext">Grayscale</span></div><div class="toolbar_button" id="saturate" name="Saturate"><span class="fa fa-diamond tooltip"></span><span class="tooltiptext">Saturate</span></div><div class="toolbar_button" id="filter" name="Saturate"><span class="fa fa-cogs tooltip"><span class="tooltiptext">Filter</span></span></div><div class="toolbar_button" id="undoBttn" name="Undo"><span class="fa fa-mail-reply tooltip"></span><span class="tooltiptext">Undo</span></div><div class="toolbar_button " id="redoBttn" name="Redo"><span class="fa fa-mail-forward tooltip"></span><span class="tooltiptext">Redo</span></div><div class="slidecontainer sizearea" style="display: none" id="slideBar"><input type="range" min="0" max="200" value="100" class="slider" id="rangeBar"><span id="filterValue">Value: </span></div><div id="filterArea" style="display: none"><figure class="brannan tooltip"><img id="brannan" class="img"><span class="tooltiptext">brannan</span></figure><figure class="aden tooltip"><img id="aden" class="img"><span class="tooltiptext">Aden</span></figure><figure class="clarendon tooltip"><img id="clarendon" class="img"><span class="tooltiptext">Clarendon</span></figure><figure class="lofi tooltip" id="style1"><img id="lofi" class="img"><span class="tooltiptext"> Lofi</span></figure><figure class="amaro tooltip"><img id="amaro" class="img"><span class="tooltiptext">Amaro</span></figure><figure class="walden tooltip"><img id="walden" class="img"><span class="tooltiptext">Walden</span></figure><figure class="maven tooltip"><img id="maven" class="img"><span class="tooltiptext">Maven</span></figure><figure class="brooklyn tooltip"><img id="brooklyn" class="img"><span class="tooltiptext">Brooklyn</span></figure><figure class="xpro2 tooltip"><img id="xpro2" class="img"><span class="tooltiptext">Xpro2</span></figure><figure class="toaster tooltip"><img id="toaster" class="img"><span class="tooltiptext">Toaster</span></figure><figure class="stinson tooltip"><img id="stinson" class="img"><span class="tooltiptext">Stinson</span></figure><figure class="inkwell tooltip"><img id="inkwell" class="img"><span class="tooltiptext">Inkwell</span></figure></div><button class="toolbar_button" id="doneBttn" name="Apply" style="display:none;"><span class="fa fa-check"></span></button><button class="toolbar_button" id="cancelBttn" name="Cancel" style="display: none;"><span class="fa fa-close"></span></button></div></div></div>',
+    element: '<div class="main"><div class="table img-edit" ><div class="tableCell box" id="container"><canvas id="panel"></canvas><label id="uploadImg" class="label" style="text-align: center"><p style="color:white; font-size: 36px;">Click to upload image</p><input type="file" class="sr-only" id="input" name="image" accept="image/*"></label></div></div><div class="table"><div class="toolbar" id="anh"><div class="toolbar_button" id="dragBttn" name="Drag"><span class="fa fa-arrows tooltip"></span><span class="tooltiptext">Drag</span></div><div class="toolbar_button" id="resizeBttn" name="Resize"><span class="fa fa-expand tooltip"></span><span class="tooltiptext">Resize</span></div><div class="toolbar_button" id="imgBttn" name="addImage"><label style="cursor: pointer"><input type="file" class="sr-only" id="addImg" name="image" accept="image/*"><span class="fa fa-image tooltip"></span><span class="tooltiptext">Add Image</span></label></div><div class="toolbar_button" id="textBttn" name="addText"><span class="fa fa-text-width tooltip"></span><span class="tooltiptext">Add Text</span></div><div class="sizearea" id="textInput" style="display: none;"><span>Text</span><input type="text" id="textValue" style="width: 100px"></div><div class="sizearea" id="widthImgInput" style="display: none;"><span>Width</span><input type="text" id="widthImgValue" style="width: 30px"></div><div class="sizearea" id="heightImgInput" style="display: none;"><span>Height</span><input type="text" id="heightImgValue" style="width: 30px"></div><div class="sizearea" id="widthInput" style="display: none;"><span>Width</span><input type="text" id="widthValue" style="width: 30px"></div><div class="sizearea" id="heightInput" style="display: none;"><span>Height</span><input type="text" id="heightValue" style="width: 30px"></div><div class="toolbar_button" id="cropBttn" name="Crop"><span class="fa fa-crop tooltip"></span><span class="tooltiptext">Crop</span></div><div class="toolbar_button" id="zoominBttn" name="ZoomIn"><span class="fa fa-search-minus tooltip"></span><span class="tooltiptext">ZoomIn</span></div><div class="toolbar_button" id="zoomoutBttn" name="Zoomout"><span class="fa fa-search-plus tooltip"></span><span class="tooltiptext">ZoomOut</span></div><div class="toolbar_button" id="orientateBttn" name="Zoomout"><span class="fa fa-refresh tooltip"></span><span class="tooltiptext">Orientation</span></div><div class="toolbar_button" id="rotateLeft" style="display: none" name="Rotate Counterclockwise"><span class="fa fa-rotate-left tooltip"></span><span class="tooltiptext" style="width:200px;">Rotate Counterclockwise</span></div><div class="toolbar_button" id="rotateRight" style="display: none" name="Rotate Clockwise"><span class="fa fa-rotate-right tooltip"></span><span class="tooltiptext">Rotate Clockwise</span></div><div class="toolbar_button" id="vertical" style="display: none"><span class="fa fa-arrows-h tooltip"></span><span class="tooltiptext">Vertical</span></div><div class="toolbar_button" id="horizontal" style="display: none"><span class="fa fa-arrows-v tooltip"></span><span class="tooltiptext">Horizontal</span></div><div class="toolbar_button" id="contrast" name="Contrast"><span class="fa fa-adjust tooltip"></span><span class="tooltiptext">Contrast</span></div><div class="toolbar_button" id="brightness" name="Brightness"><span class="fa fa-sun-o tooltip"></span><span class="tooltiptext">Brighness</span></div><div class="toolbar_button" id="blur" name="Blur"><span class="fa fa-filter tooltip"></span><span class="tooltiptext">Blur</span></div><div class="toolbar_button" id="grayscale" name="Grayscale"><span class="fa fa-snowflake-o tooltip"></span><span class="tooltiptext">Grayscale</span></div><div class="toolbar_button" id="saturate" name="Saturate"><span class="fa fa-diamond tooltip"></span><span class="tooltiptext">Saturate</span></div><div class="toolbar_button" id="filter" name="Saturate"><span class="fa fa-cogs tooltip"><span class="tooltiptext">Filter</span></span></div><div class="toolbar_button" id="undoBttn" name="Undo"><span class="fa fa-mail-reply tooltip"></span><span class="tooltiptext">Undo</span></div><div class="toolbar_button " id="redoBttn" name="Redo"><span class="fa fa-mail-forward tooltip"></span><span class="tooltiptext">Redo</span></div><div class="slidecontainer sizearea" style="display: none" id="slideBar"><input type="range" min="0" max="200" value="100" class="slider" id="rangeBar"><span id="filterValue">Value: </span></div><div id="filterArea" style="display: none"><figure class="brannan tooltip"><img id="brannan" class="img"><span class="tooltiptext">brannan</span></figure><figure class="aden tooltip"><img id="aden" class="img"><span class="tooltiptext">Aden</span></figure><figure class="clarendon tooltip"><img id="clarendon" class="img"><span class="tooltiptext">Clarendon</span></figure><figure class="lofi tooltip" id="style1"><img id="lofi" class="img"><span class="tooltiptext"> Lofi</span></figure><figure class="amaro tooltip"><img id="amaro" class="img"><span class="tooltiptext">Amaro</span></figure><figure class="walden tooltip"><img id="walden" class="img"><span class="tooltiptext">Walden</span></figure><figure class="maven tooltip"><img id="maven" class="img"><span class="tooltiptext">Maven</span></figure><figure class="brooklyn tooltip"><img id="brooklyn" class="img"><span class="tooltiptext">Brooklyn</span></figure><figure class="xpro2 tooltip"><img id="xpro2" class="img"><span class="tooltiptext">Xpro2</span></figure><figure class="toaster tooltip"><img id="toaster" class="img"><span class="tooltiptext">Toaster</span></figure><figure class="stinson tooltip"><img id="stinson" class="img"><span class="tooltiptext">Stinson</span></figure><figure class="inkwell tooltip"><img id="inkwell" class="img"><span class="tooltiptext">Inkwell</span></figure></div><button class="toolbar_button" id="doneBttn" name="Apply" style="display:none;"><span class="fa fa-check"></span></button><button class="toolbar_button" id="cancelBttn" name="Cancel" style="display: none;"><span class="fa fa-close"></span></button></div></div></div>',
     ctx: null,
     image: null,
     click: false,
@@ -31,7 +31,6 @@ var photoEditor = {
     init: function(param) {
         document.getElementById(param).insertAdjacentHTML("afterend", this.element);
         document.getElementById(param).remove();
-
 
         var el = document.getElementsByClassName('toolbar_button');
         this.img_arr = [];
@@ -78,8 +77,8 @@ var photoEditor = {
         document.getElementById('zoomoutBttn').onclick = this.zoom.bind(this, 1.5);
         document.getElementById('undoBttn').onclick = this.undo.bind(this);
         document.getElementById('redoBttn').onclick = this.redo.bind(this);
-
-
+        document.getElementById('textBttn').onclick = this.addText.bind(this);
+        document.getElementById("filter").onclick = this.chooseFilter.bind(this);
 
         document.getElementById('dragBttn').onclick = function(e) {
             tmp.ctx = document.getElementById("panel").getContext("2d");
@@ -100,22 +99,21 @@ var photoEditor = {
             tmp.openEditToolBar();
 
             document.getElementById('imgBttn').style.display = 'inline-block';
-            document.getElementById('widthInput').style.display = 'inline-block';
-            document.getElementById('heightInput').style.display = 'inline-block';
+            document.getElementById('widthImgInput').style.display = 'inline-block';
+            document.getElementById('heightImgInput').style.display = 'inline-block';
+            document.getElementById('heightImgValue').setAttribute("disabled", "");
 
             var img = new Image();
             img.setAttribute('crossOrigin', 'anonymous');
-            console.log('aaa111');
+
             var el = document.getElementsByClassName('toolbar_button');
             for (var i = 0; i < el.length; i++) {
                 el[i].style.pointerEvents = '';
             }
 
             var files = e.target.files;
-
             if (files && files.length > 0) {
                 var reader = new FileReader();
-
                 reader.onload = function (e) {
                     img.src = reader.result;
                 };
@@ -124,63 +122,51 @@ var photoEditor = {
 
             img.onload = function () {
                 tmp.states.push(tmp.addState(tmp.states.length * 100, 0, img));
-                document.getElementById('widthValue').value = img.width;
-                document.getElementById('heightValue').value = img.height;
+                document.getElementById('widthImgValue').value = img.width;
+                document.getElementById('heightImgValue').value = img.height;
             }
 
-
-
-            document.getElementById('widthValue').addEventListener('keyup', function () {
+            //change size of image
+            document.getElementById('widthImgValue').addEventListener('keyup', function () {
                 var ratio = this.value/img.width;
-                document.getElementById('heightValue').value = Math.round(img.height * ratio);
-
-
+                document.getElementById('heightImgValue').value = Math.round(img.height * ratio);
 
                 var newImg = new Image();
                 newImg.setAttribute('crossOrigin', 'anonymous');
-
                 newImg.width = this.value;
                 newImg.height = Math.round(img.height * ratio);
                 newImg.src = img.src;
 
-                console.log('44444');
-
                 tmp.clearAll(tmp);
 
-
                 newImg.onload = function () {
-                    console.log('load data');
-                    tmp.states.push(tmp.addState(tmp.states.length * 100, 0, newImg));
+                    tmp.states[tmp.states.length - 1] = tmp.addState(tmp.states.length * 100, 0, newImg);
+                }
+
+                tmp.ctx = document.getElementById("panel").getContext("2d");
+                tmp.image.src = tmp.ctx.canvas.toDataURL();
+
+                tmp.ctx.canvas.onclick = function (e) {
+                    tmp.handleClick(e, 1, tmp);
+                };
+                tmp.ctx.canvas.onmousemove = function (e) {
+                    tmp.handleMousemove(e, 1, tmp);
                 }
             });
 
-            document.getElementById('heightValue').addEventListener('keyup', function () {
-                var ratio = this.value/img.height;
-                document.getElementById('widthValue').value = Math.round(img.width * ratio);
-
-                tmp.clearAll(tmp);
-
-                var newImg = new Image();
-                newImg.setAttribute('crossOrigin', 'anonymous');
-
-                newImg.height = this.value;
-                newImg.width = Math.round(img.width * ratio);
-
-                newImg.onload = function () {
-                    tmp.states.push(tmp.addState(tmp.states.length * 100, 0, newImg));
-                }
-            });
+            tmp.ctx = document.getElementById("panel").getContext("2d");
+            tmp.image.src = tmp.ctx.canvas.toDataURL();
 
             tmp.ctx.canvas.onclick = function (e) {
                 tmp.handleClick(e, 1, tmp);
             };
-
             tmp.ctx.canvas.onmousemove = function (e) {
                 tmp.handleMousemove(e, 1, tmp);
             }
-        });
 
-        document.getElementById("filter").onclick = this.chooseFilter.bind(this);
+            document.getElementById("doneBttn").onclick = tmp.addImage.bind(tmp);
+
+        });
 
         document.getElementById("cropBttn").addEventListener('click', function() {
             tmp.ctx = document.getElementById("panel").getContext("2d");
@@ -207,98 +193,28 @@ var photoEditor = {
 
 
     },
-    addState: function (x, y, image) {
-        var state = {};
-        state.dragging = false;
-        state.contextIndex = 1;
-        state.image = image;
-        state.x = x;
-        state.y = y;
-        state.width = image.width;
-        console.log(image.width);
-        state.height = image.height;
-        state.offsetX = 0;
-        state.offsetY = 0;
-        state.draw = function () {
-            var context = document.getElementById('panel').getContext('2d');
-            if (this.dragging) {
-                context.strokeStyle = 'red';
-                context.strokeRect(this.x, this.y, this.width + 5, this.height + 5)
 
-            }
+    addText: function () {
+        this.openEditToolBar();
+        document.getElementById('textBttn').style.display = 'inline-block';
+        document.getElementById('textInput').style.display = 'inline-block';
 
-            context.drawImage(this.image, this.x, this.y, this.image.width, this.image.height);
-        }
-        state.draw();
-        return (state);
-    },
-    clearAll: function (tmp) {
-        var pos = tmp.stack_position;
-        //Clear both canvas first
-        var image = tmp.img_arr[pos];
-        // document.getElementById("panel").remove();
-        // var data = "<canvas id='panel'></canvas>";
-        // document.getElementById('container').innerHTML += data;
-        var tempCtx = document.getElementById('panel').getContext('2d');
-        tempCtx.clearRect(0, 0, tempCtx.width, tempCtx.height);
+        document.getElementById('textValue').addEventListener('keyup', function () {
+            var tmp = document.getElementById("panel").getContext("2d");
+            tmp.font = "30px Arial red";
+            tmp.fillText(this.value,tmp.canvas.width/2,tmp.canvas.height/2);
+        });
 
-        tempCtx.canvas.width = image.width;
-        tempCtx.canvas.height = image.height;
-
-        tempCtx.drawImage(image.img, 0, 0, image.width, image.height);
-    },
-    handleClick: function (e, contextIndex, tmp) {
-        e.stopPropagation();
-
-        var mouseX = Math.abs(parseInt(e.target.offsetLeft - e.clientX));
-        var mouseY = Math.abs(parseInt(e.target.offsetTop - e.clientY));
-
-        tmp.clearAll(tmp);
-
-        for (var i = 0; i < tmp.states.length; i++) {
-            var state = tmp.states[i];
-            if (state.dragging) {
-                state.dragging = false;
-                state.draw();
-                continue;
-            }
-            if (state.contextIndex == contextIndex && mouseX < state.x + state.width && mouseY < state.y + state.height) {
-                state.dragging = true;
-                state.offsetX = mouseX - state.x;
-                state.offsetY = mouseY - state.y;
-                state.contextIndex = contextIndex;
-            }
-
-            state.draw();
-        }
-    },
-    handleMousemove: function (e, contextIndex, tmp) {
-        e.stopPropagation();
-
-        var mouseX = parseInt(e.clientX - e.target.offsetLeft);
-        var mouseY = parseInt(e.clientY - e.target.offsetTop);
-
-        tmp.clearAll(tmp);
-
-        for (var i = 0; i < tmp.states.length; i++) {
-
-            var state = tmp.states[i];
-
-            if (state.dragging) {
-                state.x = mouseX - state.offsetX;
-                state.y = mouseY - state.offsetY;
-                state.contextIndex = contextIndex;
-            }
-            state.draw();
-        }
+        document.getElementById("doneBttn").onclick = this.apply.bind(this);
     },
 
-/**
+    /**
      * get uploaded image and draw canvas
      *
      */
 
     initCanvas: function() {
+
         this.image = new Image();
         this.image.setAttribute('crossOrigin', 'anonymous'); //optional,  it is needed only if your image is not avalible on same domain.
 
@@ -323,29 +239,27 @@ var photoEditor = {
         });
 
         this.image.onload = function() {
-            this.ctx.canvas.width = this.image.width;
-            this.ctx.canvas.height = this.image.height;
-            this.ctx.drawImage(this.image, 0, 0);
-            // states.push(addState(states.length * 100, 0, img));
+            if(typeof(this.img_arr[this.stack_position]) !== 'undefined' || typeof(this.img_arr[0]) == 'undefined') {
+                if (typeof(this.img_arr[0]) == 'undefined' || this.image.src != this.img_arr[this.stack_position].img.src) {
+                    this.ctx.canvas.width = this.image.width;
+                    this.ctx.canvas.height = this.image.height;
+                    this.ctx.drawImage(this.image, 0, 0);
 
+                    document.getElementById('uploadImg').style.display = 'none';
 
-            document.getElementById('uploadImg').style.display = 'none';
+                    var tempCtx = document.getElementById('panel');
+                    //add image to img_arr (for undo/redo)
+                    var newImg = new Image();
+                    newImg.src = tempCtx.toDataURL();
 
-            var tempCtx = document.getElementById('panel').getContext('2d');
-            //add image to img_arr (for undo/redo)
-            var newImg = new Image();
-            newImg.src = tempCtx.canvas.toDataURL();
-
-            var imgValue = {
-                img: newImg,
-                width: tempCtx.canvas.width,
-                height: tempCtx.canvas.height
+                    var imgValue = {
+                        img: newImg,
+                        width: tempCtx.width,
+                        height: tempCtx.height
+                    }
+                    this.img_arr.push(imgValue);
+                }
             }
-
-            this.img_arr.push(imgValue);
-            this.ctx.fillStyle = "red";
-            this.ctx.fillText('lan anh',40,80);
-
         }.bind(this);
     },
 
@@ -380,10 +294,15 @@ var photoEditor = {
             el1[i].style.display = 'none';
         }
 
+        document.getElementById('textValue').value = '';
+        document.getElementById('heightValue').removeAttribute("disabled", "");
         document.getElementById('doneBttn').style.display = 'none';
         document.getElementById('cancelBttn').style.display = 'none';
+        document.getElementById('textInput').style.display = 'none';
         document.getElementById('widthInput').style.display = 'none';
         document.getElementById('heightInput').style.display = 'none';
+        document.getElementById('widthImgInput').style.display = 'none';
+        document.getElementById('heightImgInput').style.display = 'none';
         document.getElementById('slideBar').style.display = 'none';
         document.getElementById('vertical').style.display = 'none';
         document.getElementById('horizontal').style.display = 'none';
@@ -424,16 +343,152 @@ var photoEditor = {
         for (var i = 0; i < el1.length; i++) {
             el1[i].style.display = 'none';
         }
-
+        document.getElementById('textValue').value = '';
+        document.getElementById('heightValue').removeAttribute("disabled", "");
         document.getElementById('doneBttn').style.display = 'none';
         document.getElementById('cancelBttn').style.display = 'none';
+        document.getElementById('textInput').style.display = 'none';
         document.getElementById('widthInput').style.display = 'none';
         document.getElementById('heightInput').style.display = 'none';
+        document.getElementById('widthImgInput').style.display = 'none';
+        document.getElementById('heightImgInput').style.display = 'none';
         document.getElementById('slideBar').style.display = 'none';
         document.getElementById('vertical').style.display = 'none';
         document.getElementById('horizontal').style.display = 'none';
         document.getElementById('rotateLeft').style.display = 'none';
         document.getElementById('rotateRight').style.display = 'none';
+    },
+
+    /**
+     * add more image into current image
+     *
+     */
+    addImage: function () {
+        var width = document.getElementById('panel').width;
+        var height = document.getElementById('panel').height;
+        var image = new Image();
+        image.src = document.getElementById('panel').toDataURL();
+
+        document.getElementById("panel").remove();
+        var data = "<canvas id='panel'></canvas>";
+        document.getElementById('container').innerHTML += data;
+        var tempCtx = document.getElementById('panel').getContext('2d');
+        tempCtx.clearRect(0, 0, tempCtx.canvas.width, tempCtx.canvas.height);
+
+        tempCtx.canvas.width = width;
+        tempCtx.canvas.height = height;
+
+        image.onload = function () {
+            tempCtx.drawImage(image, 0, 0);
+        }
+
+        var tmp = {
+            img: image,
+            width: width,
+            height: height
+        }
+        this.img_arr.push(tmp);
+        this.stack_position++;
+        this.closeEditToolBar();
+    },
+
+    /**
+     * add state of new image with position, information
+     *
+     */
+    addState: function (x, y, image) {
+        var state = {};
+        state.dragging = false;
+        state.contextIndex = 1;
+        state.image = image;
+        state.x = x;
+        state.y = y;
+        state.width = image.width;
+
+        state.height = image.height;
+        state.offsetX = 0;
+        state.offsetY = 0;
+        state.draw = function () {
+            var context = document.getElementById('panel').getContext('2d');
+            if (this.dragging) {
+                context.strokeStyle = 'red';
+                context.strokeRect(this.x, this.y, this.width + 5, this.height + 5)
+
+            }
+            context.drawImage(this.image, this.x, this.y, this.image.width, this.image.height);
+        }
+        state.draw();
+        return (state);
+    },
+
+    /**
+     * clear canvas before drag image
+     *
+     */
+    clearAll: function (tmp) {
+        var pos = tmp.stack_position;
+        var image = tmp.img_arr[pos];
+
+        var tempCtx = document.getElementById('panel').getContext('2d');
+        tempCtx.clearRect(0, 0, tempCtx.width, tempCtx.height);
+        tempCtx.canvas.width = image.width;
+        tempCtx.canvas.height = image.height;
+        tempCtx.drawImage(image.img, 0, 0, image.width, image.height);
+        tmp.ctx = tempCtx;
+    },
+
+    /**
+     * handle click image event to get position of image
+     *
+     */
+    handleClick: function (e, contextIndex, tmp) {
+        e.stopPropagation();
+
+        var mouseX = Math.abs(parseInt(e.target.offsetLeft - e.clientX));
+        var mouseY = Math.abs(parseInt(e.target.offsetTop - e.clientY));
+
+        tmp.clearAll(tmp);
+
+        for (var i = 0; i < tmp.states.length; i++) {
+            var state = tmp.states[i];
+            if (state.dragging) {
+                state.dragging = false;
+                state.draw();
+                continue;
+            }
+            if (state.contextIndex == contextIndex && mouseX < state.x + state.width && mouseY < state.y + state.height) {
+                state.dragging = true;
+                state.offsetX = mouseX - state.x;
+                state.offsetY = mouseY - state.y;
+                state.contextIndex = contextIndex;
+            }
+            state.draw();
+        }
+    },
+
+    /**
+     * handle mouse move event to get position of image and draw new iamge on current image
+     *
+     */
+    handleMousemove: function (e, contextIndex, tmp) {
+        e.stopPropagation();
+
+        var mouseX = parseInt(e.clientX - e.target.offsetLeft);
+        var mouseY = parseInt(e.clientY - e.target.offsetTop);
+
+        tmp.clearAll(tmp);
+
+        for (var i = 0; i < tmp.states.length; i++) {
+
+            var state = tmp.states[i];
+
+            if (state.dragging) {
+                state.x = mouseX - state.offsetX;
+                state.y = mouseY - state.offsetY;
+                state.contextIndex = contextIndex;
+            }
+            state.draw();
+        }
     },
 
     /**
@@ -1014,6 +1069,7 @@ var photoEditor = {
 
             this.stack_position = pos + 1;
             tempCtx.drawImage(image.img, 0, 0, image.width, image.height);
+
             if(this.zoomValue != 0) {
                 this.zoom(this.zoomValue);
             }
@@ -1071,7 +1127,6 @@ var photoEditor = {
      *
      */
     apply : function () {
-
         var tempCtx = document.getElementById('panel').getContext('2d');
         //add image to img_arr (for undo/redo)
         var newImg = new Image();
