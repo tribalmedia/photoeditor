@@ -13,6 +13,14 @@ A simple and easy-to-use library which provides the completion of the most basic
 * Undo and Redo 
 * Apply or Cancel editing 
 
+## Build with
+* Font Awesome 4.7.0
+
+To install Font Awesome library run below commandline:
+```
+npm install
+```
+
 ## Installation
 Two ways to intall library: 
 * Clone library and put it into your project 
@@ -22,6 +30,8 @@ git clone https://github.com/tribalmedia/photoeditor.git
 ```
 
 * Or download directly library from github and put it into your project
+
+Then import ```photoeditor.js``` and ```photoeditor.css``` into somewhere you want to use.
 
 ## Usage
 Simply apply Photoeditor with a reference to the element:
@@ -42,6 +52,6 @@ Simply apply Photoeditor with a reference to the element:
 
 ## License
 
-Photoeditor is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+Photoeditor is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 
