@@ -1,17 +1,17 @@
 # Photoeditor
 
-A simple and easy-to-use library which provides the completion of the most basic editing functions.
+Photoeditor is a simple and easy-to-use library, which provides the completion of the most basic image editing functions.
 
 ## Features
 * Support both PC and mobile devices
 * Upload Image
-* Apply Filter Effect on image such as brightness, contrast, blur, gray, staturate 
+* Apply Filter Effect on image such as brightness, contrast, blur, gray, saturate
 * Apply Filter Sample on image with twelve samples
 * Orientate Image with horizontal, vertical, rotate clockwise, rotate counterclockwise
 * Support resize image
 * Support crop image
-* Undo and Redo 
-* Apply or Cancel editing 
+* Undo and Redo
+* Apply or Cancel editing
 
 ## Build with
 * Font Awesome 4.7.0
@@ -22,8 +22,8 @@ npm install
 ```
 
 ## Installation
-Two ways to intall library: 
-* Clone library and put it into your project 
+Two ways to install library:
+* Clone library and put it into your project
 
 ```
 git clone https://github.com/tribalmedia/photoeditor.git
