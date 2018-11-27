@@ -199,10 +199,6 @@ html, body{
     #pe-redoBttn .pe-tooltiptext, #pe-undoBttn .pe-tooltiptext, #pe-filter .pe-tooltiptext {
         top:-17px;
     }
-
-    .pe-tooltiptext {
-        font-size: 17px;
-    }
 }
 
 @media only screen and (max-width: 1024px) and (min-width: 801px){
@@ -233,10 +229,6 @@ html, body{
         height: 3rem;
         text-align: center;
         width: 3rem;
-    }
-
-    .pe-tooltiptext {
-        font-size: 24px;
     }
 
     .pe-tooltip {
