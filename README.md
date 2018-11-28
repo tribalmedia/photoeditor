@@ -13,14 +13,6 @@ Photoeditor is a simple and easy-to-use library, which provides the completion o
 * Undo and Redo
 * Apply or Cancel editing
 
-## Build with
-* Font Awesome 4.7.0
-
-To install Font Awesome library run below commandline:
-```
-npm install
-```
-
 ## Installation
 Two ways to install library:
 * Clone library and put it into your project
@@ -32,6 +24,14 @@ git clone https://github.com/tribalmedia/photoeditor.git
 * Or download directly library from github and put it into your project
 
 Then import ```photoeditor.js``` and ```photoeditor.css``` into somewhere you want to use.
+
+## Build with
+* Font Awesome 4.7.0
+
+To install Font Awesome library run below commandline:
+```
+npm install
+```
 
 ## Usage
 Simply apply Photoeditor with a reference to the element:
