@@ -1,5 +1,5 @@
 var photoEditor = {
-    element: '<div class="main"><div class="table img-edit" ><div class="tableCell box" id="container"><canvas id="panel"></canvas><label id="uploadImg" class="label" style="text-align: center"><p style="color:white; font-size: 36px;">Click to upload image</p><input type="file" class="sr-only" id="input" name="image" accept="image/*"></label></div></div><div class="table"><div class="toolbar" id="anh"><div class="toolbar_button" id="dragBttn" name="Drag"><span class="fa fa-arrows tooltip"></span><span class="tooltiptext">Drag</span></div><div class="toolbar_button" id="resizeBttn" name="Resize"><span class="fa fa-expand tooltip"></span><span class="tooltiptext">Resize</span></div><div class="sizearea" id="widthInput" style="display: none;"><span>Width</span><input type="text" id="widthValue" style="width: 30px"></div><div class="sizearea" id="heightInput" style="display: none;"><span>Height</span><input type="text" id="heightValue" style="width: 30px"></div><div class="toolbar_button" id="cropBttn" name="Crop"><span class="fa fa-crop tooltip"></span><span class="tooltiptext">Crop</span></div><div class="toolbar_button" id="zoominBttn" name="ZoomIn"><span class="fa fa-search-minus tooltip"></span><span class="tooltiptext">ZoomIn</span></div><div class="toolbar_button" id="zoomoutBttn" name="Zoomout"><span class="fa fa-search-plus tooltip"></span><span class="tooltiptext">ZoomOut</span></div><div class="toolbar_button" id="orientateBttn" name="Zoomout"><span class="fa fa-refresh tooltip"></span><span class="tooltiptext">Orientation</span></div><div class="toolbar_button" id="rotateLeft" style="display: none" name="Rotate Counterclockwise"><span class="fa fa-rotate-left tooltip"></span><span class="tooltiptext" style="width:200px;">Rotate Counterclockwise</span></div><div class="toolbar_button" id="rotateRight" style="display: none" name="Rotate Clockwise"><span class="fa fa-rotate-right tooltip"></span><span class="tooltiptext">Rotate Clockwise</span></div><div class="toolbar_button" id="vertical" style="display: none"><span class="fa fa-arrows-h tooltip"></span><span class="tooltiptext">Vertical</span></div><div class="toolbar_button" id="horizontal" style="display: none"><span class="fa fa-arrows-v tooltip"></span><span class="tooltiptext">Horizontal</span></div><div class="toolbar_button" id="contrast" name="Contrast"><span class="fa fa-adjust tooltip"></span><span class="tooltiptext">Contrast</span></div><div class="toolbar_button" id="brightness" name="Brightness"><span class="fa fa-sun-o tooltip"></span><span class="tooltiptext">Brighness</span></div><div class="toolbar_button" id="blur" name="Blur"><span class="fa fa-filter tooltip"></span><span class="tooltiptext">Blur</span></div><div class="toolbar_button" id="grayscale" name="Grayscale"><span class="fa fa-snowflake-o tooltip"></span><span class="tooltiptext">Grayscale</span></div><div class="toolbar_button" id="saturate" name="Saturate"><span class="fa fa-diamond tooltip"></span><span class="tooltiptext">Saturate</span></div><div class="toolbar_button" id="filter" name="Saturate"><span class="fa fa-cogs tooltip"><span class="tooltiptext">Filter</span></span></div><div class="toolbar_button" id="undoBttn" name="Undo"><span class="fa fa-mail-reply tooltip"></span><span class="tooltiptext">Undo</span></div><div class="toolbar_button " id="redoBttn" name="Redo"><span class="fa fa-mail-forward tooltip"></span><span class="tooltiptext">Redo</span></div><div class="slidecontainer sizearea" style="display: none" id="slideBar"><input type="range" min="0" max="200" value="100" class="slider" id="rangeBar"><span id="filterValue">Value: </span></div><div id="filterArea" style="display: none"><figure class="brannan tooltip"><img id="brannan" class="img"><span class="tooltiptext">brannan</span></figure><figure class="aden tooltip"><img id="aden" class="img"><span class="tooltiptext">Aden</span></figure><figure class="clarendon tooltip"><img id="clarendon" class="img"><span class="tooltiptext">Clarendon</span></figure><figure class="lofi tooltip" id="style1"><img id="lofi" class="img"><span class="tooltiptext"> Lofi</span></figure><figure class="amaro tooltip"><img id="amaro" class="img"><span class="tooltiptext">Amaro</span></figure><figure class="walden tooltip"><img id="walden" class="img"><span class="tooltiptext">Walden</span></figure><figure class="maven tooltip"><img id="maven" class="img"><span class="tooltiptext">Maven</span></figure><figure class="brooklyn tooltip"><img id="brooklyn" class="img"><span class="tooltiptext">Brooklyn</span></figure><figure class="xpro2 tooltip"><img id="xpro2" class="img"><span class="tooltiptext">Xpro2</span></figure><figure class="toaster tooltip"><img id="toaster" class="img"><span class="tooltiptext">Toaster</span></figure><figure class="stinson tooltip"><img id="stinson" class="img"><span class="tooltiptext">Stinson</span></figure><figure class="inkwell tooltip"><img id="inkwell" class="img"><span class="tooltiptext">Inkwell</span></figure></div><button class="toolbar_button" id="doneBttn" name="Apply" style="display:none;"><span class="fa fa-check"></span></button><button class="toolbar_button" id="cancelBttn" name="Cancel" style="display: none;"><span class="fa fa-close"></span></button></div></div></div>',
+    element: '<div class="pe-main"><div class="table pe-img-edit" ><div class="tableCell box" id="pe-container"><canvas id="pe-panel"></canvas><label id="pe-uploadImg" style="text-align: center"><p style="color:white; font-size: 36px;">Click to upload image</p><input type="file" class="sr-only" id="pe-input" name="image" accept="image/*"></label></div></div><div class="table"><div class="pe-toolbar"><div class="pe-toolbar_button" id="pe-dragBttn" name="Drag"><span class="fa fa-arrows pe-tooltip"></span><span class="pe-tooltiptext">Drag</span></div><div class="pe-toolbar_button" id="pe-resizeBttn" name="Resize"><span class="fa fa-expand pe-tooltip"></span><span class="pe-tooltiptext">Resize</span></div><div class="pe-sizearea" id="pe-widthInput" style="display: none;"><span>Width</span><input type="text" id="pe-widthValue" style="width: 30px"></div><div class="pe-sizearea" id="pe-heightInput" style="display: none;"><span>Height</span><input type="text" id="pe-heightValue" style="width: 30px"></div><div class="pe-toolbar_button" id="pe-cropBttn" name="Crop"><span class="fa fa-crop pe-tooltip"></span><span class="pe-tooltiptext">Crop</span></div><div class="pe-toolbar_button" id="pe-zoominBttn" name="ZoomIn"><span class="fa fa-search-minus pe-tooltip"></span><span class="pe-tooltiptext">ZoomIn</span></div><div class="pe-toolbar_button" id="pe-zoomoutBttn" name="Zoomout"><span class="fa fa-search-plus pe-tooltip"></span><span class="pe-tooltiptext">ZoomOut</span></div><div class="pe-toolbar_button" id="pe-orientateBttn" name="Zoomout"><span class="fa fa-refresh pe-tooltip"></span><span class="pe-tooltiptext">Orientation</span></div><div class="pe-toolbar_button" id="pe-rotateLeft" style="display: none" name="Rotate Counterclockwise"><span class="fa fa-rotate-left pe-tooltip"></span><span class="pe-tooltiptext">Rotate Counterclockwise</span></div><div class="pe-toolbar_button" id="pe-rotateRight" style="display: none" name="Rotate Clockwise"><span class="fa fa-rotate-right pe-tooltip"></span><span class="pe-tooltiptext">Rotate Clockwise</span></div><div class="pe-toolbar_button" id="pe-vertical" style="display: none"><span class="fa fa-arrows-h pe-tooltip"></span><span class="pe-tooltiptext">Vertical</span></div><div class="pe-toolbar_button" id="pe-horizontal" style="display: none"><span class="fa fa-arrows-v pe-tooltip"></span><span class="pe-tooltiptext">Horizontal</span></div><div class="pe-toolbar_button" id="pe-contrast" name="Contrast"><span class="fa fa-adjust pe-tooltip"></span><span class="pe-tooltiptext">Contrast</span></div><div class="pe-toolbar_button" id="pe-brightness" name="Brightness"><span class="fa fa-sun-o pe-tooltip"></span><span class="pe-tooltiptext">Brighness</span></div><div class="pe-toolbar_button" id="pe-blur" name="Blur"><span class="fa fa-filter pe-tooltip"></span><span class="pe-tooltiptext">Blur</span></div><div class="pe-toolbar_button" id="pe-grayscale" name="Grayscale"><span class="fa fa-snowflake-o pe-tooltip"></span><span class="pe-tooltiptext">Grayscale</span></div><div class="pe-toolbar_button" id="pe-saturate" name="Saturate"><span class="fa fa-diamond pe-tooltip"></span><span class="pe-tooltiptext">Saturate</span></div><div class="pe-toolbar_button" id="pe-filter" name="Saturate"><span class="fa fa-cogs pe-tooltip"></span><span class="pe-tooltiptext">Filter</span></div><div class="pe-toolbar_button" id="pe-undoBttn" name="Undo"><span class="fa fa-mail-reply pe-tooltip"></span><span class="pe-tooltiptext">Undo</span></div><div class="pe-toolbar_button " id="pe-redoBttn" name="Redo"><span class="fa fa-mail-forward pe-tooltip"></span><span class="pe-tooltiptext">Redo</span></div><div class="pe-slidecontainer pe-sizearea" style="display: none" id="pe-slideBar"><input type="range" min="0" max="200" value="100" class="pe-slider" id="pe-rangeBar"><span id="pe-filterValue"></span></div><div id="pe-filterArea" style="display: none"><figure class="pe-brannan pe-tooltip"><img id="pe-brannan" class="pe-img"><span class="pe-tooltiptext">brannan</span></figure><figure class="pe-aden pe-tooltip"><img id="pe-aden" class="pe-img"><span class="pe-tooltiptext">Aden</span></figure><figure class="pe-clarendon pe-tooltip"><img id="pe-clarendon" class="pe-img"><span class="pe-tooltiptext">Clarendon</span></figure><figure class="pe-lofi pe-tooltip" id="style1"><img id="pe-lofi" class="pe-img"><span class="pe-tooltiptext"> Lofi</span></figure><figure class="pe-amaro pe-tooltip"><img id="pe-amaro" class="pe-img"><span class="pe-tooltiptext">Amaro</span></figure><figure class="pe-walden pe-tooltip"><img id="pe-walden" class="pe-img"><span class="pe-tooltiptext">Walden</span></figure><figure class="pe-maven pe-tooltip"><img id="pe-maven" class="pe-img"><span class="pe-tooltiptext">Maven</span></figure><figure class="pe-brooklyn pe-tooltip"><img id="pe-brooklyn" class="pe-img"><span class="pe-tooltiptext">Brooklyn</span></figure><figure class="pe-xpro2 pe-tooltip"><img id="pe-xpro2" class="pe-img"><span class="pe-tooltiptext">Xpro2</span></figure><figure class="pe-toaster pe-tooltip"><img id="pe-toaster" class="pe-img"><span class="pe-tooltiptext">Toaster</span></figure><figure class="pe-stinson pe-tooltip"><img id="pe-stinson" class="pe-img"><span class="pe-tooltiptext">Stinson</span></figure><figure class="pe-inkwell pe-tooltip"><img id="pe-inkwell" class="pe-img"><span class="pe-tooltiptext">Inkwell</span></figure></div><button class="pe-toolbar_button" id="pe-doneBttn" name="Apply" style="display:none;"><span class="fa fa-check"></span></button><button class="pe-toolbar_button" id="pe-cancelBttn" name="Cancel" style="display: none;"><span class="fa fa-close"></span></button></div></div></div>',
     ctx: null,
     image: null,
     click: false,
@@ -33,7 +33,7 @@ var photoEditor = {
         document.getElementById(param).remove();
 
         var tmp = this;
-        var el = document.getElementsByClassName('toolbar_button');
+        var el = document.getElementsByClassName('pe-toolbar_button');
         this.img_arr = [];
         this.stack_position = 0;
         this.zoomValue = 0;
@@ -42,46 +42,46 @@ var photoEditor = {
             el[i].style.pointerEvents = 'none';
         }
 
-        this.dragItem = document.getElementById("panel");
-        this.container = document.getElementById("container");
-        this.ctx = document.getElementById("panel").getContext("2d");
+        this.dragItem = document.getElementById("pe-panel");
+        this.container = document.getElementById("pe-container");
+        this.ctx = document.getElementById("pe-panel").getContext("2d");
         this.initCanvas();
 
         //value of filter
         this.filter = {
-            'toaster' : 'contrast(150%) brightness(90%)',
-            'amaro' : 'contrast(90%) brightness(110%) saturate(150%) hue-rotate(-10deg)',
-            'brooklyn' : 'contrast(90%) brightness(110%)',
-            'clarendon' : 'contrast(120%) saturate(125%)',
-            'inkwell' : 'contrast(110%) brightness(110%) sepia(30%) grayscale(100%)',
-            'aden' : 'contrast(90%) brightness(120%) saturate(85%) hue-rotate(20deg)',
-            'stinson' : 'contrast(75%) brightness(115%) saturate(85%)',
-            'walden' : 'brightness(110%) saturate(160%) sepia(30%) hue-rotate(350deg)',
-            'xpro2' : 'sepia(30%)',
-            'maven' : 'contrast(95%) brightness(95%) saturate(150%) sepia(25%)',
-            'brannan' : 'contrast(140%) sepia(50%)',
-            'lofi' : 'contrast(150%) saturate(110%)'
+            'pe-toaster' : 'contrast(150%) brightness(90%)',
+            'pe-amaro' : 'contrast(90%) brightness(110%) saturate(150%) hue-rotate(-10deg)',
+            'pe-brooklyn' : 'contrast(90%) brightness(110%)',
+            'pe-clarendon' : 'contrast(120%) saturate(125%)',
+            'pe-inkwell' : 'contrast(110%) brightness(110%) sepia(30%) grayscale(100%)',
+            'pe-aden' : 'contrast(90%) brightness(120%) saturate(85%) hue-rotate(20deg)',
+            'pe-stinson' : 'contrast(75%) brightness(115%) saturate(85%)',
+            'pe-walden' : 'brightness(110%) saturate(160%) sepia(30%) hue-rotate(350deg)',
+            'pe-xpro2' : 'sepia(30%)',
+            'pe-maven' : 'contrast(95%) brightness(95%) saturate(150%) sepia(25%)',
+            'pe-brannan' : 'contrast(140%) sepia(50%)',
+            'pe-lofi' : 'contrast(150%) saturate(110%)'
         };
 
         //buttons event
-        document.getElementById("resizeBttn").onclick = this.changeImageSize.bind(this);
-        document.getElementById("contrast").onclick = this.changeImageFilter.bind(this, 'contrast');
-        document.getElementById("brightness").onclick = this.changeImageFilter.bind(this, 'brightness');
-        document.getElementById("grayscale").onclick = this.changeImageFilter.bind(this, 'grayscale');
-        document.getElementById("blur").onclick = this.changeImageFilter.bind(this, 'blur');
-        document.getElementById("saturate").onclick = this.changeImageFilter.bind(this, 'saturate');
-        document.getElementById("cancelBttn").onclick = this.cancelEditImage.bind(this);
-        document.getElementById("orientateBttn").onclick = this.orientateImage.bind(this);
-        document.getElementById('zoominBttn').onclick = this.zoom.bind(this, 0.5);
-        document.getElementById('zoomoutBttn').onclick = this.zoom.bind(this, 1.5);
-        document.getElementById('undoBttn').onclick = this.undo.bind(this);
-        document.getElementById('redoBttn').onclick = this.redo.bind(this);
+        document.getElementById("pe-resizeBttn").onclick = this.changeImageSize.bind(this);
+        document.getElementById("pe-contrast").onclick = this.changeImageFilter.bind(this, 'pe-contrast');
+        document.getElementById("pe-brightness").onclick = this.changeImageFilter.bind(this, 'pe-brightness');
+        document.getElementById("pe-grayscale").onclick = this.changeImageFilter.bind(this, 'pe-grayscale');
+        document.getElementById("pe-blur").onclick = this.changeImageFilter.bind(this, 'pe-blur');
+        document.getElementById("pe-saturate").onclick = this.changeImageFilter.bind(this, 'pe-saturate');
+        document.getElementById("pe-cancelBttn").onclick = this.cancelEditImage.bind(this);
+        document.getElementById("pe-orientateBttn").onclick = this.orientateImage.bind(this);
+        document.getElementById('pe-zoominBttn').onclick = this.zoom.bind(this, 0.5);
+        document.getElementById('pe-zoomoutBttn').onclick = this.zoom.bind(this, 1.5);
+        document.getElementById('pe-undoBttn').onclick = this.undo.bind(this);
+        document.getElementById('pe-redoBttn').onclick = this.redo.bind(this);
 
-        document.getElementById('dragBttn').onclick = function(e) {
-            tmp.ctx = document.getElementById("panel").getContext("2d");
+        document.getElementById('pe-dragBttn').onclick = function(e) {
+            tmp.ctx = document.getElementById("pe-panel").getContext("2d");
             tmp.image.src = tmp.ctx.canvas.toDataURL();
 
-            var container = document.querySelector("#container");
+            var container = document.querySelector("#pe-container");
             //mouse's mobile event
             container.addEventListener("touchstart", tmp.dragStart.bind(tmp), false);
             container.addEventListener("touchend", tmp.dragEnd.bind(tmp), false);
@@ -92,21 +92,21 @@ var photoEditor = {
             container.addEventListener("mousemove", tmp.drag.bind(tmp), false);
         };
 
-        document.getElementById("filter").onclick = this.chooseFilter.bind(this);
+        document.getElementById("pe-filter").onclick = this.chooseFilter.bind(this);
 
-        document.getElementById("cropBttn").addEventListener('click', function() {
-            tmp.ctx = document.getElementById("panel").getContext("2d");
+        document.getElementById("pe-cropBttn").addEventListener('click', function() {
+            tmp.ctx = document.getElementById("pe-panel").getContext("2d");
             tmp.image.src = tmp.ctx.canvas.toDataURL();
 
             tmp.openEditToolBar();
 
-            document.getElementById('cropBttn').style.display = 'inline-block';
+            document.getElementById('pe-cropBttn').style.display = 'inline-block';
 
             tmp.initEventsOnCanvas();
-            document.getElementById("doneBttn").onclick = tmp.cropImage.bind(tmp);
+            document.getElementById("pe-doneBttn").onclick = tmp.cropImage.bind(tmp);
 
             //remove drag event
-            var container = document.querySelector("#container");
+            var container = document.querySelector("#pe-container");
             //mouse's mobile event
             container.removeEventListener("touchstart", tmp.dragStart);
             container.removeEventListener("touchend", tmp.dragEnd);
@@ -130,8 +130,8 @@ var photoEditor = {
 
         var tmp = this;
 
-        document.getElementById('input').addEventListener('change', function (e) {
-            var el = document.getElementsByClassName('toolbar_button');
+        document.getElementById('pe-input').addEventListener('change', function (e) {
+            var el = document.getElementsByClassName('pe-toolbar_button');
             for (var i = 0; i < el.length; i++) {
                 el[i].style.pointerEvents = '';
             }
@@ -153,9 +153,9 @@ var photoEditor = {
             this.ctx.canvas.height = this.image.height;
             this.ctx.drawImage(this.image, 0, 0);
 
-            document.getElementById('uploadImg').style.display = 'none';
+            document.getElementById('pe-uploadImg').style.display = 'none';
 
-            var tempCtx = document.getElementById('panel').getContext('2d');
+            var tempCtx = document.getElementById('pe-panel').getContext('2d');
             //add image to img_arr (for undo/redo)
             var newImg = new Image();
             newImg.src = tempCtx.canvas.toDataURL();
@@ -176,13 +176,13 @@ var photoEditor = {
      *
      */
     openEditToolBar: function() {
-        var el = document.getElementsByClassName('toolbar_button');
+        var el = document.getElementsByClassName('pe-toolbar_button');
 
         for (var i = 0; i < el.length; i++) {
             el[i].style.display = 'none';
         }
-        document.getElementById('doneBttn').style.display = 'inline-block';
-        document.getElementById('cancelBttn').style.display = 'inline-block';
+        document.getElementById('pe-doneBttn').style.display = 'inline-block';
+        document.getElementById('pe-cancelBttn').style.display = 'inline-block';
     },
 
     /**
@@ -190,7 +190,7 @@ var photoEditor = {
      *
      */
     closeEditToolBar: function() {
-        var el = document.getElementsByClassName('toolbar_button');
+        var el = document.getElementsByClassName('pe-toolbar_button');
 
         for (var i = 0; i < el.length; i++) {
             el[i].style.display = 'inline-block';
@@ -202,15 +202,15 @@ var photoEditor = {
             el1[i].style.display = 'none';
         }
 
-        document.getElementById('doneBttn').style.display = 'none';
-        document.getElementById('cancelBttn').style.display = 'none';
-        document.getElementById('widthInput').style.display = 'none';
-        document.getElementById('heightInput').style.display = 'none';
-        document.getElementById('slideBar').style.display = 'none';
-        document.getElementById('vertical').style.display = 'none';
-        document.getElementById('horizontal').style.display = 'none';
-        document.getElementById('rotateLeft').style.display = 'none';
-        document.getElementById('rotateRight').style.display = 'none';
+        document.getElementById('pe-doneBttn').style.display = 'none';
+        document.getElementById('pe-cancelBttn').style.display = 'none';
+        document.getElementById('pe-widthInput').style.display = 'none';
+        document.getElementById('pe-heightInput').style.display = 'none';
+        document.getElementById('pe-slideBar').style.display = 'none';
+        document.getElementById('pe-vertical').style.display = 'none';
+        document.getElementById('pe-horizontal').style.display = 'none';
+        document.getElementById('pe-rotateLeft').style.display = 'none';
+        document.getElementById('pe-rotateRight').style.display = 'none';
     },
 
     /**
@@ -220,10 +220,10 @@ var photoEditor = {
     cancelEditImage: function() {
         var pos = this.stack_position;
         var image = this.img_arr[pos];
-        document.getElementById("panel").remove();
-        var data = "<canvas id='panel'></canvas>";
-        document.getElementById('container').innerHTML += data;
-        var tempCtx = document.getElementById('panel').getContext('2d');
+        document.getElementById("pe-panel").remove();
+        var data = "<canvas id='pe-panel'></canvas>";
+        document.getElementById('pe-container').innerHTML += data;
+        var tempCtx = document.getElementById('pe-panel').getContext('2d');
         tempCtx.clearRect(0, 0, tempCtx.width, tempCtx.height);
 
         tempCtx.canvas.width = image.width;
@@ -235,7 +235,7 @@ var photoEditor = {
             this.zoom(this.zoomValue);
         }
 
-        var el = document.getElementsByClassName('toolbar_button');
+        var el = document.getElementsByClassName('pe-toolbar_button');
 
         for (var i = 0; i < el.length; i++) {
             el[i].style.display = 'inline-block';
@@ -247,15 +247,15 @@ var photoEditor = {
             el1[i].style.display = 'none';
         }
 
-        document.getElementById('doneBttn').style.display = 'none';
-        document.getElementById('cancelBttn').style.display = 'none';
-        document.getElementById('widthInput').style.display = 'none';
-        document.getElementById('heightInput').style.display = 'none';
-        document.getElementById('slideBar').style.display = 'none';
-        document.getElementById('vertical').style.display = 'none';
-        document.getElementById('horizontal').style.display = 'none';
-        document.getElementById('rotateLeft').style.display = 'none';
-        document.getElementById('rotateRight').style.display = 'none';
+        document.getElementById('pe-doneBttn').style.display = 'none';
+        document.getElementById('pe-cancelBttn').style.display = 'none';
+        document.getElementById('pe-widthInput').style.display = 'none';
+        document.getElementById('pe-heightInput').style.display = 'none';
+        document.getElementById('pe-slideBar').style.display = 'none';
+        document.getElementById('pe-vertical').style.display = 'none';
+        document.getElementById('pe-horizontal').style.display = 'none';
+        document.getElementById('pe-rotateLeft').style.display = 'none';
+        document.getElementById('pe-rotateRight').style.display = 'none';
     },
 
     /**
@@ -264,8 +264,8 @@ var photoEditor = {
      */
     chooseFilter: function() {
         this.openEditToolBar();
-        var tempCtx = document.getElementById('panel').getContext('2d');
-        var el = document.getElementsByClassName('img');
+        var tempCtx = document.getElementById('pe-panel').getContext('2d');
+        var el = document.getElementsByClassName('pe-img');
         var src = tempCtx.canvas.toDataURL();
 
         imageData = tempCtx.canvas.toDataURL();
@@ -274,20 +274,20 @@ var photoEditor = {
             el[i].parentElement.style.display = 'inline-block';
         }
 
-        document.getElementById('filterArea').style.display = '';
-        document.getElementById("toaster").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName':'toaster'});
-        document.getElementById("aden").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName': 'aden'});
-        document.getElementById("amaro").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName': 'amaro'});
-        document.getElementById("brooklyn").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName': 'brooklyn'});
-        document.getElementById("clarendon").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName': 'clarendon'});
-        document.getElementById("inkwell").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName': 'inkwell'});
-        document.getElementById("lofi").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName': 'lofi'});
-        document.getElementById("stinson").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName': 'stinson'});
-        document.getElementById("walden").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName': 'walden'});
-        document.getElementById("xpro2").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName': 'xpro2'});
-        document.getElementById("brannan").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName': 'brannan'});
-        document.getElementById("maven").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName': 'maven'});
-        document.getElementById("doneBttn").onclick = this.apply.bind(this);
+        document.getElementById('pe-filterArea').style.display = '';
+        document.getElementById("pe-toaster").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName':'pe-toaster'});
+        document.getElementById("pe-aden").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName': 'pe-aden'});
+        document.getElementById("pe-amaro").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName': 'pe-amaro'});
+        document.getElementById("pe-brooklyn").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName': 'pe-brooklyn'});
+        document.getElementById("pe-clarendon").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName': 'pe-clarendon'});
+        document.getElementById("pe-inkwell").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName': 'pe-inkwell'});
+        document.getElementById("pe-lofi").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName': 'pe-lofi'});
+        document.getElementById("pe-stinson").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName': 'pe-stinson'});
+        document.getElementById("pe-walden").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName': 'pe-walden'});
+        document.getElementById("pe-xpro2").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName': 'pe-xpro2'});
+        document.getElementById("pe-brannan").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName': 'pe-brannan'});
+        document.getElementById("pe-maven").onclick = this.applyFilter.bind(this, {'filterSample' : true, 'src' : src, 'filterName': 'pe-maven'});
+        document.getElementById("pe-doneBttn").onclick = this.apply.bind(this);
     },
 
     /**
@@ -337,7 +337,7 @@ var photoEditor = {
 
             this.xOffset = this.currentX;
             this.yOffset = this.currentY;
-            this.setTranslate(this.currentX, this.currentY, document.getElementById("panel"));
+            this.setTranslate(this.currentX, this.currentY, document.getElementById("pe-panel"));
         }
     },
 
@@ -519,18 +519,18 @@ var photoEditor = {
      * @return {[type]}
      */
     cropImage: function() {
-        document.getElementById("panel").remove();
-        var data = "<canvas id='panel'></canvas>";
-        document.getElementById('container').innerHTML += data;
-        var tempCtx = document.getElementById('panel').getContext('2d');
+        document.getElementById("pe-panel").remove();
+        var data = "<canvas id='pe-panel'></canvas>";
+        document.getElementById('pe-container').innerHTML += data;
+        var tempCtx = document.getElementById('pe-panel').getContext('2d');
         tempCtx.clearRect(0, 0, tempCtx.canvas.style.width, tempCtx.canvas.style.height);
         tempCtx.canvas.width = this.lastPointX - this.downPointX;
         tempCtx.canvas.height = this.lastPointY - this.downPointY;
         tempCtx.drawImage(this.image, this.downPointX, this.downPointY, (this.lastPointX - this.downPointX), (this.lastPointY - this.downPointY), 0, 0, (this.lastPointX - this.downPointX), (this.lastPointY - this.downPointY));
 
-        imageData = document.getElementById('panel').getContext('2d').canvas.toDataURL();
-        var width = document.getElementById('panel').width;
-        var height = document.getElementById('panel').height;
+        imageData = document.getElementById('pe-panel').getContext('2d').canvas.toDataURL();
+        var width = document.getElementById('pe-panel').width;
+        var height = document.getElementById('pe-panel').height;
         var image = new Image();
         image.src = imageData;
 
@@ -550,32 +550,32 @@ var photoEditor = {
      */
     changeImageSize: function() {
         this.openEditToolBar();
-        document.getElementById('resizeBttn').style.display = 'inline-block';
-        document.getElementById('widthInput').style.display = 'inline-block';
-        document.getElementById('heightInput').style.display = 'inline-block';
+        document.getElementById('pe-resizeBttn').style.display = 'inline-block';
+        document.getElementById('pe-widthInput').style.display = 'inline-block';
+        document.getElementById('pe-heightInput').style.display = 'inline-block';
 
-        var tmp = document.getElementById('panel').getContext('2d');
+        var tmp = document.getElementById('pe-panel').getContext('2d');
 
-        document.getElementById('widthValue').value = tmp.canvas.width;
-        document.getElementById('heightValue').value = tmp.canvas.height;
+        document.getElementById('pe-widthValue').value = tmp.canvas.width;
+        document.getElementById('pe-heightValue').value = tmp.canvas.height;
 
-        document.getElementById('widthValue').addEventListener('keyup', function () {
+        document.getElementById('pe-widthValue').addEventListener('keyup', function () {
             var ratio = this.value/tmp.canvas.width;
-            document.getElementById('heightValue').value = Math.round(tmp.canvas.height * ratio);
+            document.getElementById('pe-heightValue').value = Math.round(tmp.canvas.height * ratio);
         });
 
-        document.getElementById('heightValue').addEventListener('keyup', function () {
+        document.getElementById('pe-heightValue').addEventListener('keyup', function () {
             var ratio = this.value/tmp.canvas.height;
-            document.getElementById('widthValue').value = Math.round(tmp.canvas.width * ratio);
+            document.getElementById('pe-widthValue').value = Math.round(tmp.canvas.width * ratio);
         });
 
-        document.getElementById("doneBttn").onclick = this.resizeImage.bind(this, {'resizeStatus' : true});
+        document.getElementById("pe-doneBttn").onclick = this.resizeImage.bind(this, {'resizeStatus' : true});
 
     },
 
     resizeImage : function (param) {
-        var tmpCanvas = document.getElementById('panel');
-        var newCanvas = "<canvas id='panel'></canvas>";
+        var tmpCanvas = document.getElementById('pe-panel');
+        var newCanvas = "<canvas id='pe-panel'></canvas>";
         var width;
         var height;
         var image;
@@ -583,19 +583,19 @@ var photoEditor = {
 
         //resize image value
         if (typeof(param.resizeStatus) !== 'undefined' ) {
-            width = document.getElementById('widthValue').value;
-            height = document.getElementById('heightValue').value;
+            width = document.getElementById('pe-widthValue').value;
+            height = document.getElementById('pe-heightValue').value;
         } else {
             width = tmpCanvas.width;
             height = tmpCanvas.height;
         }
 
         image = new Image();
-        image.src = document.getElementById('panel').getContext('2d').canvas.toDataURL();
+        image.src = document.getElementById('pe-panel').getContext('2d').canvas.toDataURL();
         tmpCanvas.remove();
-        document.getElementById('container').innerHTML += newCanvas;
+        document.getElementById('pe-container').innerHTML += newCanvas;
 
-        var tempCtx = document.getElementById('panel').getContext('2d');
+        var tempCtx = document.getElementById('pe-panel').getContext('2d');
         tempCtx.clearRect(0, 0, tempCtx.width, tempCtx.height);
         tempCtx.canvas.width = width;
         tempCtx.canvas.height = height;
@@ -606,7 +606,7 @@ var photoEditor = {
 
             //add image to img_arr (for undo/redo)
             var newImg = new Image();
-            newImg.src = document.getElementById('panel').getContext('2d').canvas.toDataURL();
+            newImg.src = document.getElementById('pe-panel').getContext('2d').canvas.toDataURL();
             var imgValue = {
                 img: newImg,
                 width: width,
@@ -626,28 +626,28 @@ var photoEditor = {
     changeImageFilter: function(name) {
         this.openEditToolBar();
         var tmp = this;
-        document.getElementById('slideBar').style.display = 'inline-block';
+        document.getElementById('pe-slideBar').style.display = 'inline-block';
         if (name == 'blur') {
-            document.getElementById('rangeBar').value = 0;
+            document.getElementById('pe-rangeBar').value = 0;
         } else {
-            document.getElementById('rangeBar').value = 100;
+            document.getElementById('pe-rangeBar').value = 100;
         }
 
         document.getElementById(name).style.display = 'inline-block';
 
-        var tempCtx = document.getElementById('panel').getContext('2d');
+        var tempCtx = document.getElementById('pe-panel').getContext('2d');
         var src = tempCtx.canvas.toDataURL();
 
-        var slider = document.getElementById("rangeBar");
-        var output = document.getElementById("filterValue");
+        var slider = document.getElementById("pe-rangeBar");
+        var output = document.getElementById("pe-filterValue");
         output.innerHTML = slider.value;
 
         slider.oninput = function() {
             output.innerHTML = this.value;
-            tmp.applyFilter({'filterStatus' : 'true', 'property' : name, 'src' : src });
+            tmp.applyFilter({'filterStatus' : 'true', 'property' : name.substring(3), 'src' : src });
 
         }
-        document.getElementById("doneBttn").onclick = this.apply.bind(this);
+        document.getElementById("pe-doneBttn").onclick = this.apply.bind(this);
     },
 
     /**
@@ -656,18 +656,18 @@ var photoEditor = {
      */
     orientateImage: function() {
         this.openEditToolBar();
-        document.getElementById('orientateBttn').style.display = 'inline-block';
-        document.getElementById('vertical').style.display = 'inline-block';
-        document.getElementById('horizontal').style.display = 'inline-block';
-        document.getElementById('rotateLeft').style.display = 'inline-block';
-        document.getElementById('rotateRight').style.display = 'inline-block';
+        document.getElementById('pe-orientateBttn').style.display = 'inline-block';
+        document.getElementById('pe-vertical').style.display = 'inline-block';
+        document.getElementById('pe-horizontal').style.display = 'inline-block';
+        document.getElementById('pe-rotateLeft').style.display = 'inline-block';
+        document.getElementById('pe-rotateRight').style.display = 'inline-block';
 
-        document.getElementById('vertical').addEventListener('click', function() {
-            var width = document.getElementById('panel').width;
-            var height = document.getElementById('panel').height;
-            imageData = document.getElementById('panel').getContext('2d').canvas.toDataURL();
+        document.getElementById('pe-vertical').addEventListener('click', function() {
+            var width = document.getElementById('pe-panel').width;
+            var height = document.getElementById('pe-panel').height;
+            imageData = document.getElementById('pe-panel').getContext('2d').canvas.toDataURL();
 
-            var tempCtx = document.getElementById('panel').getContext('2d');
+            var tempCtx = document.getElementById('pe-panel').getContext('2d');
             tempCtx.clearRect(0, 0, tempCtx.width, tempCtx.height);
             tempCtx.canvas.width = width;
             tempCtx.canvas.height = height;
@@ -682,12 +682,12 @@ var photoEditor = {
             tempCtx.restore();
         });
 
-        document.getElementById('horizontal').addEventListener('click', function() {
-            var width = document.getElementById('panel').width;
-            var height = document.getElementById('panel').height;
-            imageData = document.getElementById('panel').getContext('2d').canvas.toDataURL();
+        document.getElementById('pe-horizontal').addEventListener('click', function() {
+            var width = document.getElementById('pe-panel').width;
+            var height = document.getElementById('pe-panel').height;
+            imageData = document.getElementById('pe-panel').getContext('2d').canvas.toDataURL();
 
-            var tempCtx = document.getElementById('panel').getContext('2d');
+            var tempCtx = document.getElementById('pe-panel').getContext('2d');
             tempCtx.clearRect(0, 0, tempCtx.width, tempCtx.height);
             tempCtx.canvas.width = width;
             tempCtx.canvas.height = height;
@@ -702,12 +702,12 @@ var photoEditor = {
             tempCtx.restore();
         });
 
-        document.getElementById('rotateRight').addEventListener('click', function() {
-            var width = document.getElementById('panel').width;
-            var height = document.getElementById('panel').height;
+        document.getElementById('pe-rotateRight').addEventListener('click', function() {
+            var width = document.getElementById('pe-panel').width;
+            var height = document.getElementById('pe-panel').height;
 
-            imageData = document.getElementById('panel').getContext('2d').canvas.toDataURL();
-            var tempCtx = document.getElementById('panel').getContext('2d');
+            imageData = document.getElementById('pe-panel').getContext('2d').canvas.toDataURL();
+            var tempCtx = document.getElementById('pe-panel').getContext('2d');
             var blank = document.createElement('canvas');
 
             //blank canvas
@@ -726,22 +726,22 @@ var photoEditor = {
                 image.src = imageData;
                 image.onload = function() {
                     tempCtx.drawImage(image, 0, 0);
-                    var zoomW = document.getElementById('panel').style.width;
-                    var zommH = document.getElementById('panel').style.height
-                    document.getElementById('panel').style.width = zommH;
-                    document.getElementById('panel').style.height = zoomW;
+                    var zoomW = document.getElementById('pe-panel').style.width;
+                    var zommH = document.getElementById('pe-panel').style.height
+                    document.getElementById('pe-panel').style.width = zommH;
+                    document.getElementById('pe-panel').style.height = zoomW;
                 };
                 tempCtx.restore();
             }
 
         });
 
-        document.getElementById('rotateLeft').addEventListener('click', function() {
-            var width = document.getElementById('panel').width;
-            var height = document.getElementById('panel').height;
+        document.getElementById('pe-rotateLeft').addEventListener('click', function() {
+            var width = document.getElementById('pe-panel').width;
+            var height = document.getElementById('pe-panel').height;
 
-            imageData = document.getElementById('panel').getContext('2d').canvas.toDataURL();
-            var tempCtx = document.getElementById('panel').getContext('2d');
+            imageData = document.getElementById('pe-panel').getContext('2d').canvas.toDataURL();
+            var tempCtx = document.getElementById('pe-panel').getContext('2d');
 
             //blank canvas
             var blank = document.createElement('canvas');
@@ -760,16 +760,16 @@ var photoEditor = {
                 image.src = imageData;
                 image.onload = function() {
                     tempCtx.drawImage(image, 0, 0);
-                    var zoomW = document.getElementById('panel').style.width;
-                    var zommH = document.getElementById('panel').style.height
-                    document.getElementById('panel').style.width = zommH;
-                    document.getElementById('panel').style.height = zoomW;
+                    var zoomW = document.getElementById('pe-panel').style.width;
+                    var zommH = document.getElementById('pe-panel').style.height
+                    document.getElementById('pe-panel').style.width = zommH;
+                    document.getElementById('pe-panel').style.height = zoomW;
                 };
                 tempCtx.restore();
             }
         });
 
-        document.getElementById("doneBttn").onclick = this.apply.bind(this);
+        document.getElementById("pe-doneBttn").onclick = this.apply.bind(this);
     },
 
     /**
@@ -778,7 +778,7 @@ var photoEditor = {
      * @param ratio
      */
     zoom: function(val) {
-        img_ele = document.getElementById('panel');
+        img_ele = document.getElementById('pe-panel');
         width = this.img_arr[this.stack_position].width;
 
         img_ele.style.left = '';
@@ -799,10 +799,10 @@ var photoEditor = {
 
         if (pos > 0 ) {
             var image = this.img_arr[pos-1];
-            document.getElementById("panel").remove();
-            var data = "<canvas id='panel'></canvas>";
-            document.getElementById('container').innerHTML += data;
-            var tempCtx = document.getElementById('panel').getContext('2d');
+            document.getElementById("pe-panel").remove();
+            var data = "<canvas id='pe-panel'></canvas>";
+            document.getElementById('pe-container').innerHTML += data;
+            var tempCtx = document.getElementById('pe-panel').getContext('2d');
             tempCtx.clearRect(0, 0, tempCtx.width, tempCtx.height);
 
             tempCtx.canvas.width = image.width;
@@ -825,10 +825,10 @@ var photoEditor = {
 
         if (pos + 1 < this.img_arr.length) {
             var image = this.img_arr[pos+1];
-            document.getElementById("panel").remove();
-            var data = "<canvas id='panel'></canvas>";
-            document.getElementById('container').innerHTML += data;
-            var tempCtx = document.getElementById('panel').getContext('2d');
+            document.getElementById("pe-panel").remove();
+            var data = "<canvas id='pe-panel'></canvas>";
+            document.getElementById('pe-container').innerHTML += data;
+            var tempCtx = document.getElementById('pe-panel').getContext('2d');
             tempCtx.clearRect(0, 0, tempCtx.width, tempCtx.height);
 
             tempCtx.canvas.width = image.width;
@@ -850,19 +850,19 @@ var photoEditor = {
         var canvas = document.createElement('canvas');
         var actx = canvas.getContext("2d");
 
-        canvas.width = document.getElementById('panel').width;
-        canvas.height = document.getElementById('panel').height;
+        canvas.width = document.getElementById('pe-panel').width;
+        canvas.height = document.getElementById('pe-panel').height;
 
         var image = new Image();
         if(param.src == '') {
-            image.src = document.getElementById('panel').toDataURL();
+            image.src = document.getElementById('pe-panel').toDataURL();
         } else {
             image.src = param.src;
         }
 
         //filter value
         if (typeof(param.filterStatus) !== 'undefined') {
-            var val = document.getElementById("filterValue").innerHTML;
+            var val = document.getElementById("pe-filterValue").innerHTML;
             if (param.property == 'blur') {
                 actx.filter =  param.property+'('+val+'px)';
             } else {
@@ -879,10 +879,10 @@ var photoEditor = {
             actx.drawImage(image, 0, 0, canvas.width, canvas.height);
 
             var imageData = actx.getImageData(0, 0, actx.canvas.width, actx.canvas.height);
-            var tempCtx = document.getElementById('panel').getContext('2d');
+            var tempCtx = document.getElementById('pe-panel').getContext('2d');
 
-            document.getElementById('panel').setAttribute('width', canvas.width);
-            document.getElementById('panel').setAttribute('height', canvas.height);
+            document.getElementById('pe-panel').setAttribute('width', canvas.width);
+            document.getElementById('pe-panel').setAttribute('height', canvas.height);
 
             tempCtx.putImageData(imageData, 0, 0);
         }
@@ -894,7 +894,7 @@ var photoEditor = {
      */
     apply : function () {
 
-        var tempCtx = document.getElementById('panel').getContext('2d');
+        var tempCtx = document.getElementById('pe-panel').getContext('2d');
         //add image to img_arr (for undo/redo)
         var newImg = new Image();
         newImg.src = tempCtx.canvas.toDataURL();
