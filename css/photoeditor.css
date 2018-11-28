@@ -71,7 +71,6 @@ html, body{
 
 .pe-tooltiptext {
     display: none;
-    width: 120px;
     background-color: black;
     color: #fff;
     text-align: center;
@@ -79,6 +78,7 @@ html, body{
     padding: 3px;
     top:-25px;
     position: absolute;
+    white-space: nowrap;
 }
 
 .pe-toolbar_button:hover{
@@ -88,7 +88,6 @@ html, body{
 
 .pe-toolbar_button:hover .pe-tooltiptext{
     display: block;
-    margin-left: -50px;
 }
 
 .pe-toolbar_button {
