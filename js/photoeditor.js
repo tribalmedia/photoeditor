@@ -480,18 +480,13 @@ var photoEditor = {
     },
 
     downloadImage: function() {
-        var can = document.getElementById('pe-panel');
-
-        var img = new Image();
-        img.src = can.toDataURL();
+        var canvas = document.getElementById('pe-panel').getContext('2d');
+        image.src = canvas.toDataURL();
 
         var link = document.createElement('a');
-        link.href = img.src;
+        link.href = image.src;
         link.download = 'image.jpg';
-        document.body.appendChild(link);
         link.click();
-        document.body.removeChild(link);
-        
     },
 
     /**
