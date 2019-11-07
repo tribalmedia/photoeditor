@@ -64,7 +64,6 @@ var photoEditor = {
         };
 
         //buttons event
-        document.getElementById("pe-downloadBtn").onclick = this.downloadImage.bind(this); 
         document.getElementById("pe-resizeBttn").onclick = this.changeImageSize.bind(this);
         document.getElementById("pe-contrast").onclick = this.changeImageFilter.bind(this, 'pe-contrast');
         document.getElementById("pe-brightness").onclick = this.changeImageFilter.bind(this, 'pe-brightness');
@@ -77,6 +76,18 @@ var photoEditor = {
         document.getElementById('pe-zoomoutBttn').onclick = this.zoom.bind(this, 1.5);
         document.getElementById('pe-undoBttn').onclick = this.undo.bind(this);
         document.getElementById('pe-redoBttn').onclick = this.redo.bind(this);
+
+        //fix by team wp
+        document.getElementById("pe-downloadBtn").addEventListener('click', function() {
+            tmp.ctx = document.getElementById("pe-panel").getContext("2d");
+            tmp.image.src = tmp.ctx.canvas.toDataURL();
+
+            var link = document.createElement('a');
+            link.download = 'image.jpg';
+            link.href = tmp.image.src;
+            link.click();
+            link.remove();
+        });
 
         document.getElementById('pe-dragBttn').onclick = function(e) {
             tmp.ctx = document.getElementById("pe-panel").getContext("2d");
@@ -477,16 +488,6 @@ var photoEditor = {
             this.resize = false;
             this.reDrawCanvas();
         }
-    },
-
-    downloadImage: function() {
-        var canvas = document.getElementById('pe-panel').getContext('2d');
-        image.src = canvas.toDataURL();
-
-        var link = document.createElement('a');
-        link.href = image.src;
-        link.download = 'image.jpg';
-        link.click();
     },
 
     /**
