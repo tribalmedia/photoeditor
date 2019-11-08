@@ -128,11 +128,7 @@ var photoEditor = {
             container.removeEventListener("mouseup", tmp.dragEnd);
             container.removeEventListener("mousemove", tmp.drag);
         });
-
-
     },
-
-
     /**
      * get uploaded image and draw canvas
      *
