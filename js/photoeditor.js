@@ -23,6 +23,7 @@ var photoEditor = {
     dragItem : null,
     container : null,
     zoomValue : 0,
+    formatImage : null,
 
     /**
      * Initlize canvas and handle button event
@@ -77,13 +78,12 @@ var photoEditor = {
         document.getElementById('pe-undoBttn').onclick = this.undo.bind(this);
         document.getElementById('pe-redoBttn').onclick = this.redo.bind(this);
 
-        //fix by team wp
         document.getElementById("pe-downloadBtn").addEventListener('click', function() {
             tmp.ctx = document.getElementById("pe-panel").getContext("2d");
             tmp.image.src = tmp.ctx.canvas.toDataURL();
 
             var link = document.createElement('a');
-            link.download = 'image.jpg';
+            link.download = 'image.' + formatImage;
             link.href = tmp.image.src;
             link.click();
             link.remove();
@@ -150,7 +150,7 @@ var photoEditor = {
 
             if (files && files.length > 0) {
                 var reader = new FileReader();
-
+                formatImage = files['0'].name.split('.')[1];
                 reader.onload = function (e) {
                     tmp.image.src = reader.result;
                 };
