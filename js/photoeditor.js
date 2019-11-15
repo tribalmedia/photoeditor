@@ -146,8 +146,10 @@ var photoEditor = {
 
         if(type_tag == 'IMG') {
             this.image.src = urlImg;
-            formatImage = urlImg.split('.').splice(-1);
-            if(formatImage != 'png' || formatImage != 'jpg' || formatImage != 'jpeg'){
+            formatImage = urlImg.split('.').splice(-1)[0];
+
+            format = ['png', 'jpg', 'jpeg', 'gif'];
+            if(!format.includes(formatImage)){
                 formatImage = 'png';
             }
         }
