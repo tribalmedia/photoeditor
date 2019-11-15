@@ -139,12 +139,12 @@ var photoEditor = {
      *
      */
 
-    initCanvas: function(urlImg, type_tag) {
+    initCanvas: function(urlImg, nameTag) {
         this.image = new Image();
         this.image.setAttribute('crossOrigin', 'anonymous'); //optional,  it is needed only if your image is not avalible on same domain.
         var tmp = this;
 
-        if(type_tag == 'IMG') {
+        if(nameTag == 'IMG') {
             this.image.src = urlImg;
             formatImage = urlImg.split('.').splice(-1)[0];
 
