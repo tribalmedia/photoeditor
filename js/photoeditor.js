@@ -32,7 +32,7 @@ var photoEditor = {
      * Initlize canvas and handle button event
      *
      */
-    init: function(param, parent_img) {
+    init: function(param, place_render) {
         tmp_param = document.getElementById(param);
         this.nameTag = tmp_param.nodeName;
         this.urlImg = tmp_param.getAttribute('src');
@@ -88,7 +88,7 @@ var photoEditor = {
             document.getElementsByClassName('pe-main')[0].style.display = 'none';
             tmp.ctx = document.getElementById("pe-panel").getContext("2d");
             tmp.image.src = tmp.ctx.canvas.toDataURL();
-            tmp.render(tmp.image.src, parent_img);
+            tmp.render(tmp.image.src, place_render);
         });
 
         document.getElementById("pe-downloadBtn").addEventListener('click', function() {
@@ -946,9 +946,9 @@ var photoEditor = {
      * render to HTML IMG Tag
      *
      */
-    render : function (src_img, parent_img) {
+    render : function (src_img, place_render) {
         var myImage = document.createElement("IMG");
         myImage.setAttribute('src', src_img);
-        document.getElementById(parent_img).appendChild(myImage);
+        document.getElementById(place_render).appendChild(myImage);
     }
 };
