@@ -9,11 +9,12 @@
     <title>Edit Image Demo</title>
 </head>
 <body>
-    <img src="" id="click_img" alt="">
+    <img src="" alt="" id="img_test">
+    <div id="show_img"> </div>
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        photoEditor.init('click_img');
+        photoEditor.init('img_test', 'show_img');
     }, false);
 </script>
 </html>
