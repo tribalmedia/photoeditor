@@ -52,7 +52,6 @@ var photoEditor = {
         var el = document.getElementsByClassName('pe-toolbar_button');
         this.img_arr = [];
         this.stack_position = 0;
-        // this.zoomValue = 0;
 
         for (var i = 0; i < el.length; i++) {
             el[i].style.pointerEvents = 'none';
@@ -154,7 +153,6 @@ var photoEditor = {
 
             tmp.initEventsOnCanvas();
             document.getElementById("pe-doneBttn").onclick = tmp.cropImage.bind(tmp);
-
 
             //remove drag event
             var container = document.querySelector("#pe-container");
@@ -556,7 +554,6 @@ var photoEditor = {
         this.ctx.fillRect(this.lastPointX - this.hoverBoxSize, this.downPointY - this.hoverBoxSize, this.hoverBoxSize * 2, this.hoverBoxSize * 2);
         this.ctx.fillRect(this.lastPointX - this.hoverBoxSize, this.lastPointY - this.hoverBoxSize, this.hoverBoxSize * 2, this.hoverBoxSize * 2);
         this.ctx.fillRect(this.downPointX - this.hoverBoxSize, this.lastPointY - this.hoverBoxSize, this.hoverBoxSize * 2, this.hoverBoxSize * 2);
-
     },
 
     /**
@@ -630,7 +627,6 @@ var photoEditor = {
         });
 
         document.getElementById("pe-doneBttn").onclick = this.resizeImage.bind(this, {'resizeStatus' : true});
-
     },
 
     resizeImage : function (param) {
