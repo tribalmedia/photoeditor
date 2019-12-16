@@ -12,6 +12,8 @@ Photoeditor is a simple and easy-to-use library, which provides the completion o
 * Support crop image
 * Undo and Redo
 * Apply or Cancel editing
+* Import image from server
+* Download edited image
 
 ## Installation
 Two ways to install library:
@@ -44,7 +46,17 @@ Simply apply Photoeditor with a reference to the element:
 </script>
 
 ```
+Or import image from your server:
+```
+<img src="your-imge-url" alt="" id="test">
+<div id = "show_your_img"></div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        photoEditor.init('test', 'show_your_img');
+    }, false);
+</script>
 
+```
 ## Authors
 
 `<code>` with ❤ by Tribal Media House

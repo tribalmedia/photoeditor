@@ -9,11 +9,12 @@
     <title>Edit Image Demo</title>
 </head>
 <body>
-   <img src="https://znews-photo.zadn.vn/w660/Uploaded/mdf_drkydd/2019_08_10/0.jpg" alt="" id="img_test">
+   <img src="" alt="" id="img_test">
+   <div id = "show_img"></div>
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        photoEditor.init('img_test');
+        photoEditor.init('img_test', 'show_img');
     }, false);
 </script>
 </html>
