@@ -31,15 +31,33 @@ var photoEditor = {
      * Initlize canvas and handle button event
      *
      */
-    init: function(param, place_render) {
+    init: function(param) {
+        var place_render = 'pe_container1';
         tmp_param = document.getElementById(param);
         this.nameTag = tmp_param.nodeName;
         this.urlImg = tmp_param.getAttribute('src');
 
-        if (param != place_render) {
-            tmp_param.remove();
-        }
+        var $photo_editor_box = document.createElement("div");
+        $photo_editor_box.style.backgroundColor = "rgba(0,0,0, 0.5)";
+        $photo_editor_box.style.width = "100vw";
+        $photo_editor_box.style.height = "100vh";
+        $photo_editor_box.style.top = 0;
+        $photo_editor_box.style.left = 0;
+        $photo_editor_box.style.zIndex = "10000";
+        $photo_editor_box.style.textAlign = "center";
+        $photo_editor_box.style.position = "fixed";
+        
+        var $container = document.createElement("div");
+        $container.style.width = window.innerWidth-50 + "px";
+        $container.style.height = window.innerHeight + "px";
+        $container.style.top = "50%";
+        $container.style.transform = "translateY(-50%)";
+        $container.style.display = "inline";
+        $container.setAttribute("id", place_render);
+        document.getElementsByTagName("BODY")[0].appendChild($photo_editor_box);
+        $photo_editor_box.appendChild($container);
 
+        tmp_param.remove();
         var nodes = document.body.children;
         for (var i = 0; i < nodes.length; i++) {
             if (nodes[i].tagName != 'SCRIPT') {
@@ -985,7 +1003,7 @@ var photoEditor = {
     render : function (src_img, place_render) {
         var myImage = document.createElement("IMG");
         myImage.setAttribute('src', src_img);
-        myImage.setAttribute('id', 'test');
+        myImage.setAttribute('id', 'id_img');
         document.getElementById(place_render).innerHTML = '';
         document.getElementById(place_render).appendChild(myImage);
         
@@ -996,7 +1014,7 @@ var photoEditor = {
             }
         }
         document.getElementsByClassName('pe-main')[0].style.display = 'none';
-        document.getElementById('test').addEventListener('click', function() {
+        document.getElementById('id_img').addEventListener('click', function() {
             var nodes = document.body.children;
             for (var i = 0; i < nodes.length; i++) {
                 if (nodes[i].tagName != 'SCRIPT') {
