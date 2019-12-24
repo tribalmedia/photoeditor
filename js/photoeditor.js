@@ -31,31 +31,10 @@ var photoEditor = {
      * Initlize canvas and handle button event
      *
      */
-    init: function(param) {
-        var place_render = 'pe_container1';
-        tmp_param = document.getElementById(param);
+    init: function(param, place_render) {
+        tmp_param = param;
         this.nameTag = tmp_param.nodeName;
         this.urlImg = tmp_param.getAttribute('src');
-
-        var $photo_editor_box = document.createElement("div");
-        $photo_editor_box.style.backgroundColor = "rgba(0,0,0, 0.5)";
-        $photo_editor_box.style.width = "100vw";
-        $photo_editor_box.style.height = "100vh";
-        $photo_editor_box.style.top = 0;
-        $photo_editor_box.style.left = 0;
-        $photo_editor_box.style.zIndex = "10000";
-        $photo_editor_box.style.textAlign = "center";
-        $photo_editor_box.style.position = "fixed";
-        
-        var $container = document.createElement("div");
-        $container.style.width = window.innerWidth-50 + "px";
-        $container.style.height = window.innerHeight + "px";
-        $container.style.top = "50%";
-        $container.style.transform = "translateY(-50%)";
-        $container.style.display = "inline";
-        $container.setAttribute("id", place_render);
-        document.getElementsByTagName("BODY")[0].appendChild($photo_editor_box);
-        $photo_editor_box.appendChild($container);
 
         tmp_param.remove();
         var nodes = document.body.children;
@@ -64,6 +43,7 @@ var photoEditor = {
                 nodes[i].style.display = 'none';
             }
         }
+
         document.body.insertAdjacentHTML("afterbegin", this.element);
 
         var tmp = this;
@@ -118,7 +98,7 @@ var photoEditor = {
                         nodes[i].style.display = 'block';
                     }
                 }
-                document.getElementById(place_render).remove();
+                place_render.remove();
                 document.getElementsByClassName('pe-main')[0].remove();
             }
         });
@@ -719,7 +699,6 @@ var photoEditor = {
         slider.oninput = function() {
             output.innerHTML = this.value;
             tmp.applyFilter({'filterStatus' : 'true', 'property' : name.substring(3), 'src' : src });
-
         }
         document.getElementById("pe-doneBttn").onclick = this.apply.bind(this);
     },
@@ -807,7 +786,6 @@ var photoEditor = {
                 };
                 tempCtx.restore();
             }
-
         });
 
         document.getElementById('pe-rotateLeft').addEventListener('click', function() {
@@ -865,7 +843,6 @@ var photoEditor = {
         var pre_width = tmpCanvas.getBoundingClientRect().width, pre_height = tmpCanvas.getBoundingClientRect().height;
         width = pre_width * val;
         height = pre_height * val;
-        //this.zoomValue = (pre_width * val) / widthstack;
 
         image = new Image();
         image.src = tmp.img_arr[tmp.stack_position].img.src;
@@ -1004,8 +981,8 @@ var photoEditor = {
         var myImage = document.createElement("IMG");
         myImage.setAttribute('src', src_img);
         myImage.setAttribute('id', 'id_img');
-        document.getElementById(place_render).innerHTML = '';
-        document.getElementById(place_render).appendChild(myImage);
+        place_render.innerHTML = '';
+        place_render.appendChild(myImage);
         
         var nodes = document.body.children;
         for (var i = 0; i < nodes.length; i++) {
