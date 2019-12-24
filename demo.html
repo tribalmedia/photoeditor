@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -9,12 +9,34 @@
     <title>Edit Image Demo</title>
 </head>
 <body>
-   <img src="" alt="" id="img_test">
-   <div id = "show_img"></div>
+   <img class="image-view" src="https://yt3.ggpht.com/a/AGF-l79GVKPyPMTRkj71ylLQkbGooYUIJ9qObRA8oQ=s900-c-k-c0xffffffff-no-rj-mo">
 </body>
 <script>
+    var $photo_editor_box = document.createElement("div");
+    $photo_editor_box.style.backgroundColor = "rgba(0,0,0, 0.5)";
+    $photo_editor_box.style.width = "100vw";
+    $photo_editor_box.style.height = "100vh";
+    $photo_editor_box.style.top = 0;
+    $photo_editor_box.style.left = 0;
+    $photo_editor_box.style.zIndex = "10000";
+    $photo_editor_box.style.textAlign = "center";
+    $photo_editor_box.style.position = "fixed";
+
+    var $container = document.createElement("div");
+    $container.style.width = window.innerWidth-50 + "px";
+    $container.style.height = window.innerHeight + "px";
+    $container.style.top = "50%";
+    $container.style.transform = "translateY(-50%)";
+    $container.style.display = "inline";
+    $container.setAttribute('class', 'pe_container1');
+    document.getElementsByTagName("BODY")[0].appendChild($photo_editor_box);
+    $photo_editor_box.appendChild($container);
+
     document.addEventListener('DOMContentLoaded', function() {
-        photoEditor.init('img_test', 'show_img');
+        var img = document.getElementsByClassName('image-view')[0];
+        var photoeditor_box = document.getElementsByClassName('pe_container1')[0];
+        
+        photoEditor.init(img, photoeditor_box);
     }, false);
 </script>
 </html>

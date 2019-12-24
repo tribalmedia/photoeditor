@@ -32,20 +32,18 @@ var photoEditor = {
      *
      */
     init: function(param, place_render) {
-        tmp_param = document.getElementById(param);
+        tmp_param = param;
         this.nameTag = tmp_param.nodeName;
         this.urlImg = tmp_param.getAttribute('src');
 
-        if (param != place_render) {
-            tmp_param.remove();
-        }
-
+        tmp_param.remove();
         var nodes = document.body.children;
         for (var i = 0; i < nodes.length; i++) {
             if (nodes[i].tagName != 'SCRIPT') {
                 nodes[i].style.display = 'none';
             }
         }
+
         document.body.insertAdjacentHTML("afterbegin", this.element);
 
         var tmp = this;
@@ -100,7 +98,7 @@ var photoEditor = {
                         nodes[i].style.display = 'block';
                     }
                 }
-                document.getElementById(place_render).remove();
+                place_render.remove();
                 document.getElementsByClassName('pe-main')[0].remove();
             }
         });
@@ -701,7 +699,6 @@ var photoEditor = {
         slider.oninput = function() {
             output.innerHTML = this.value;
             tmp.applyFilter({'filterStatus' : 'true', 'property' : name.substring(3), 'src' : src });
-
         }
         document.getElementById("pe-doneBttn").onclick = this.apply.bind(this);
     },
@@ -789,7 +786,6 @@ var photoEditor = {
                 };
                 tempCtx.restore();
             }
-
         });
 
         document.getElementById('pe-rotateLeft').addEventListener('click', function() {
@@ -847,7 +843,6 @@ var photoEditor = {
         var pre_width = tmpCanvas.getBoundingClientRect().width, pre_height = tmpCanvas.getBoundingClientRect().height;
         width = pre_width * val;
         height = pre_height * val;
-        //this.zoomValue = (pre_width * val) / widthstack;
 
         image = new Image();
         image.src = tmp.img_arr[tmp.stack_position].img.src;
@@ -985,9 +980,9 @@ var photoEditor = {
     render : function (src_img, place_render) {
         var myImage = document.createElement("IMG");
         myImage.setAttribute('src', src_img);
-        myImage.setAttribute('id', 'test');
-        document.getElementById(place_render).innerHTML = '';
-        document.getElementById(place_render).appendChild(myImage);
+        myImage.setAttribute('id', 'id_img');
+        place_render.innerHTML = '';
+        place_render.appendChild(myImage);
         
         var nodes = document.body.children;
         for (var i = 0; i < nodes.length; i++) {
@@ -996,7 +991,7 @@ var photoEditor = {
             }
         }
         document.getElementsByClassName('pe-main')[0].style.display = 'none';
-        document.getElementById('test').addEventListener('click', function() {
+        document.getElementById('id_img').addEventListener('click', function() {
             var nodes = document.body.children;
             for (var i = 0; i < nodes.length; i++) {
                 if (nodes[i].tagName != 'SCRIPT') {
