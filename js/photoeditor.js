@@ -31,20 +31,20 @@ var photoEditor = {
      * Initlize canvas and handle button event
      *
      */
-    init: function(param, place_render) {
+    init: function(param, photoeditor_box) {
         tmp_param = param;
         this.nameTag = tmp_param.nodeName;
         this.urlImg = tmp_param.getAttribute('src');
-
         tmp_param.remove();
+
         var nodes = document.body.children;
         for (var i = 0; i < nodes.length; i++) {
             if (nodes[i].tagName != 'SCRIPT') {
                 nodes[i].style.display = 'none';
             }
         }
-
-        document.body.insertAdjacentHTML("afterbegin", this.element);
+        photoeditor_box.parentElement.style.display = 'block';
+        photoeditor_box.insertAdjacentHTML("afterbegin", this.element);
 
         var tmp = this;
         var el = document.getElementsByClassName('pe-toolbar_button');
@@ -98,8 +98,7 @@ var photoEditor = {
                         nodes[i].style.display = 'block';
                     }
                 }
-                place_render.remove();
-                document.getElementsByClassName('pe-main')[0].remove();
+                photoeditor_box.innerHTML = '';
             }
         });
 
@@ -107,7 +106,7 @@ var photoEditor = {
             document.getElementsByClassName('pe-main')[0].style.display = 'none';
             tmp.ctx = document.getElementById("pe-panel").getContext("2d");
             tmp.image.src = tmp.ctx.canvas.toDataURL();
-            tmp.render(tmp.image.src, place_render);
+            tmp.render(tmp.image.src, photoeditor_box);
         });
 
         document.getElementById("pe-downloadBtn").addEventListener('click', function() {
@@ -837,7 +836,6 @@ var photoEditor = {
         var image;
         var tmp = this;
         widthstack = this.img_arr[this.stack_position].width;
-
         tmpCanvas.style.left = '';
         tmpCanvas.style.top = '';
         var pre_width = tmpCanvas.getBoundingClientRect().width, pre_height = tmpCanvas.getBoundingClientRect().height;
@@ -857,6 +855,14 @@ var photoEditor = {
         image.onload = function() {
             tempCtx.drawImage(image, 0, 0, width, height);
         }
+
+        var imgValue = {
+            img: image,
+            width: width,
+            height: height
+        }
+        this.img_arr[this.stack_position] = imgValue;
+
     },
 
     /**
@@ -977,27 +983,19 @@ var photoEditor = {
      * render to HTML IMG Tag
      *
      */
-    render : function (src_img, place_render) {
-        var myImage = document.createElement("IMG");
-        myImage.setAttribute('src', src_img);
-        myImage.setAttribute('id', 'id_img');
-        place_render.innerHTML = '';
-        place_render.appendChild(myImage);
-        
-        var nodes = document.body.children;
-        for (var i = 0; i < nodes.length; i++) {
-            if (nodes[i].tagName != 'SCRIPT') {
-                nodes[i].style.display = 'block';
-            }
+    render : function (src_img, photoeditor_box) {
+        if (document.getElementsByClassName('pe-main')[0].nextElementSibling != null) {
+            document.getElementById('img_render').remove();
         }
         document.getElementsByClassName('pe-main')[0].style.display = 'none';
-        document.getElementById('id_img').addEventListener('click', function() {
-            var nodes = document.body.children;
-            for (var i = 0; i < nodes.length; i++) {
-                if (nodes[i].tagName != 'SCRIPT') {
-                    nodes[i].style.display = 'none';
-                }
-            }
+        var myImage = document.createElement("IMG");
+        myImage.setAttribute('src', src_img);
+        myImage.setAttribute('id', 'img_render');
+        photoeditor_box.appendChild(myImage);
+
+        document.getElementsByClassName('pe-main')[0].style.display = 'none';
+        document.getElementById('img_render').addEventListener('click', function() {
+            this.style.display = 'none';
             document.getElementsByClassName('pe-main')[0].style.display = 'block';
         });
     }
