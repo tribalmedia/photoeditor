@@ -8,13 +8,26 @@ html, body, div, span {
     vertical-align: baseline;
 }
 
+.divClose {
+    position: fixed;
+    top: 0px;
+    right: 9px;
+    cursor: pointer;
+}
+
+.divClose:hover #idClose {
+    color: gray;
+}
+
 html, body{
     height: 100%;
 }
 
 .pe-main{
+    width: 100%;
     height: 100%;
     background-color: #333;
+    position: absolute;
 }
 
 /*====toolBar CSS===*/
@@ -23,8 +36,9 @@ html, body{
     bottom: 1rem;
     color: #fff;
     display: inline-block;
-    position: relative;
-    top: 50%;
+    position: absolute;
+    top: 94%;
+    width: max-content;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -95,21 +109,22 @@ html, body{
 }
 
 .pe-img-edit{
-    height: 90%;
+    height: 100%;
+    width: 100%;
 }
 
 #pe-panel {
-    position: relative;
+    position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
     left: 50%;
 }
 
 #pe-container {
-    height: 100%;
+    height: 90%;
     overflow: hidden;
     width: 80%;
-    position: relative;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -155,7 +170,7 @@ html, body{
 }
 
 /*CSS for ipad/tablet */
-@media only screen and (max-width: 800px) and (min-width: 601px) {
+@media only screen and (max-width: 800px) and (min-width: 480px) {
     .pe-main {
         top: 0rem;
     }
@@ -163,20 +178,16 @@ html, body{
     #pe-container {
         width: 100%;
         height: 100%;
-        left: 0%;
-        top: -15%;
     }
 
     #pe-panel {
-        width: 100%;
+        width: 75%;
         height: auto;
-        top: 45%;
     }
 
     .pe-toolbar {
         width: 32rem;
         height: 2rem;
-        margin-left: -12rem;
         top: 90%;
     }
 
@@ -208,14 +219,11 @@ html, body{
     #pe-container {
         width: 100%;
         height: 100%;
-        left: 0%;
-        top: -15%;
     }
 
     #pe-panel {
-        width: 100%;
+        width: 75%;
         height: auto;
-        top: 45%;
     }
 
     .pe-toolbar {
@@ -282,8 +290,8 @@ html, body{
 
 .pe-img {
     max-width: 100%;
-    width: 70px;
-    height: 70px
+    width: 60px;
+    height: 60px;
 }
 
 #pe-widthValue, #pe-heightValue {
@@ -366,3 +374,38 @@ html, body{
 figure {
     margin: 0;
 }
+
+.table-img {
+    text-align:center;
+    color: white;
+    width: 50%;
+    height:30%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: solid 1px black;
+    overflow: auto;
+}
+.table-img img {
+    width: 100px;
+    height: 100px;
+    border: solid 1px green;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.table-img img:hover {
+    border: solid 1px blue;
+}
+
+.table-img ul {
+    margin: 0px;
+    padding: 5px;
+}
+.table-img ul li {
+    list-style: none;
+    display: inline;
+}  
