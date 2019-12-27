@@ -35,15 +35,6 @@ var photoEditor = {
         tmp_param = param;
         this.nameTag = tmp_param.nodeName;
         this.urlImg = tmp_param.getAttribute('src');
-        tmp_param.remove();
-
-        var nodes = document.body.children;
-        for (var i = 0; i < nodes.length; i++) {
-            if (nodes[i].tagName != 'SCRIPT') {
-                nodes[i].style.display = 'none';
-            }
-        }
-        photoeditor_box.parentElement.style.display = 'block';
         photoeditor_box.insertAdjacentHTML("afterbegin", this.element);
 
         var tmp = this;
@@ -92,13 +83,7 @@ var photoEditor = {
 
         document.getElementById("btnClose").addEventListener('click', function(){
             if (confirm("Are you sure exit ?")) {
-                var nodes = document.body.children;
-                for (var i = 0; i < nodes.length; i++) {
-                    if (nodes[i].tagName != 'SCRIPT') {
-                        nodes[i].style.display = 'block';
-                    }
-                }
-                photoeditor_box.innerHTML = '';
+                photoeditor_box.parentElement.remove();
             }
         });
 
